@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>figment — IELTS Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;
+  --charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;
+  --muted-ivory:rgba(244,241,236,0.55);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);letter-spacing:0.02em;text-decoration:none;}
+.nav-logo{text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+/* HERO */
+.hero{position:relative;min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 70% 30%,#0B2C4A 0%,#000 60%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(6rem,15vw,12rem);line-height:0.88;color:var(--ivory);letter-spacing:-0.02em;display:block;text-shadow:0 0 100px rgba(198,167,94,0.1);opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:var(--muted-ivory);max-width:520px;line-height:1.7;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+/* SECTIONS */
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* PROGRAM CARDS */
+.programs-section{background:var(--charcoal);}
+.programs-header{margin-bottom:4rem;}
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.06);}
+.program-card{background:var(--charcoal);padding:3rem 2.5rem;position:relative;}
+.card-badge{
+  display:inline-block;padding:0.3rem 1rem;
+  background:var(--navy);
+  font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:2rem;
+}
+.card-badge.featured{background:var(--gold);color:var(--black);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.card-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--grey);margin-bottom:1.5rem;}
+.card-stats{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;gap:0.2rem;}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);}
+.stat-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;}
+.card-features{list-style:none;margin-bottom:2.5rem;}
+.card-features li{font-size:0.85rem;color:var(--muted-ivory);padding:0.5rem 0;border-bottom:1px solid rgba(244,241,236,0.06);font-family:'DM Sans',sans-serif;font-weight:300;padding-left:1rem;position:relative;}
+.card-features li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.card-price{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--ivory);}
+.card-price span{font-size:0.8rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;margin-left:0.3rem;}
+.card-cta{display:inline-block;margin-top:1.5rem;padding:0.8rem 2rem;border:1px solid var(--gold);color:var(--gold);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background 0.3s,color 0.3s;}
+.card-cta:hover{background:var(--gold);color:var(--black);}
+.card-cta.primary{background:var(--gold);color:var(--black);}
+.card-cta.primary:hover{background:var(--gold-light);}
+
+/* COMPARISON */
+.comparison-section{background:var(--black);}
+.compare-table{width:100%;border-collapse:collapse;margin-top:3rem;}
+.compare-table th{padding:1.2rem 1.5rem;text-align:left;font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;font-weight:400;}
+.compare-table th:not(:first-child){background:var(--navy);text-align:center;}
+.compare-table th:nth-child(3){background:var(--gold);color:var(--black);}
+.compare-table td{padding:1.1rem 1.5rem;border-top:1px solid rgba(244,241,236,0.06);font-size:0.85rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;}
+.compare-table td:not(:first-child){text-align:center;color:var(--ivory);}
+.compare-table td:first-child{color:var(--grey);font-size:0.78rem;}
+.compare-table tr:hover td{background:rgba(244,241,236,0.02);}
+
+/* SCHEDULE */
+.schedule-section{background:var(--charcoal);}
+.tab-nav{display:flex;gap:0;margin-bottom:3rem;border-bottom:1px solid rgba(244,241,236,0.1);}
+.tab-btn{padding:0.8rem 1.8rem;background:none;border:none;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--grey);cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.3s;position:relative;}
+.tab-btn.active{color:var(--gold);}
+.tab-btn.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--gold);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.schedule-table{width:100%;border-collapse:collapse;}
+.schedule-table th{padding:1rem 1.5rem;text-align:left;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.12);}
+.schedule-table td{padding:1rem 1.5rem;font-size:0.85rem;color:var(--muted-ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.05);}
+.schedule-table td:first-child{color:var(--ivory);font-weight:400;}
+.badge-open{display:inline-block;padding:0.2rem 0.6rem;background:rgba(198,167,94,0.15);color:var(--gold);font-size:0.6rem;letter-spacing:0.2em;font-family:'DM Sans',sans-serif;}
+
+/* ENRICHMENT */
+.enrichment-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.enrichment-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.enrichment-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,8vw,6rem);line-height:0.9;color:var(--ivory);margin-bottom:1.5rem;}
+.enrichment-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.enrichment-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);line-height:1.9;margin-bottom:2rem;}
+.enrichment-features{display:flex;flex-direction:column;gap:1.5rem;}
+.enrich-item{}
+.enrich-title{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;font-family:'DM Sans',sans-serif;}
+.enrich-desc{font-size:0.88rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+.enrich-price{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold);margin-bottom:0.5rem;}
+.enrich-note{font-size:0.72rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-style:italic;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+/* FOOTER */
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  .hero{padding:8rem 1.5rem 4rem;}
+  section{padding:4rem 1.5rem;}
+  .cards-grid{grid-template-columns:1fr;}
+  .enrichment-inner{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;}
+  .cta-banner{flex-direction:column;}
+}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html" class="active">IELTS</a>
+    <a href="gre.html">GRE</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">IELTS Coaching — figment</span>
+  <span class="hero-word">Your<br><em>Band.</em><br>Achieved.</span>
+  <p class="hero-desc">Three program formats. One outcome. The band score that opens every door — taught by the same faculty, with the same commitment to your result.</p>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section">
+  <div class="programs-header reveal">
+    <span class="section-label">IELTS Programs</span>
+    <div class="section-heading">Choose your<br><em>path.</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="cards-grid">
+    <!-- Online Batch -->
+    <div class="program-card reveal">
+      <span class="card-badge">Partner Run</span>
+      <div class="card-title">Online Batch Program</div>
+      <div class="card-subtitle">Instructor-led · Live online · Flexible schedule</div>
+      <div class="card-stats">
+        <div class="stat"><span class="stat-val">25</span><span class="stat-lbl">Sessions</span></div>
+        <div class="stat"><span class="stat-val">37.5h</span><span class="stat-lbl">Training</span></div>
+        <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">Mock Tests</span></div>
+      </div>
+      <ul class="card-features">
+        <li>All 4 modules: Listening, Reading, Writing, Speaking</li>
+        <li>Study materials provided</li>
+        <li>Class recordings available</li>
+        <li>Multiple batch timings (Morning / Evening / Late Evening)</li>
+      </ul>
+      <div class="card-price">₹8,000 <span>one-time</span></div>
+      <a href="contact.html" class="card-cta">Enrol Now</a>
+    </div>
+
+    <!-- Classroom Batch -->
+    <div class="program-card reveal">
+      <span class="card-badge featured">Most Comprehensive</span>
+      <div class="card-title">Classroom Batch Program</div>
+      <div class="card-subtitle">In-person · Intensive · Writing-heavy</div>
+      <div class="card-stats">
+        <div class="stat"><span class="stat-val">15</span><span class="stat-lbl">Sessions</span></div>
+        <div class="stat"><span class="stat-val">30h</span><span class="stat-lbl">Training</span></div>
+        <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">Full Mocks</span></div>
+      </div>
+      <ul class="card-features">
+        <li>Orientation + all 4 modules in depth</li>
+        <li>Writing: 8 hours (30% of course time) — highest weightage</li>
+        <li>Real test simulation with detailed feedback</li>
+        <li>Minimum batch size of 5 students</li>
+      </ul>
+      <div class="card-price">₹8,000 <span>one-time</span></div>
+      <a href="contact.html" class="card-cta primary">Enrol Now</a>
+    </div>
+
+    <!-- One on One -->
+    <div class="program-card reveal">
+      <span class="card-badge">Personalised</span>
+      <div class="card-title">One on One Program</div>
+      <div class="card-subtitle">100% personal · Fast-track · Online or Classroom</div>
+      <div class="card-stats">
+        <div class="stat"><span class="stat-val">10</span><span class="stat-lbl">Sessions</span></div>
+        <div class="stat"><span class="stat-val">20h</span><span class="stat-lbl">Training</span></div>
+        <div class="stat"><span class="stat-val">1:1</span><span class="stat-lbl">Attention</span></div>
+      </div>
+      <ul class="card-features">
+        <li>Diagnostic assessment + target band roadmap</li>
+        <li>Writing: live correction, rewriting & examiner logic</li>
+        <li>Speaking: mock interviews, fluency & coherence tuning</li>
+        <li>Structure customisable to your needs</li>
+      </ul>
+      <div class="card-price">₹20,000 <span>one-time</span></div>
+      <a href="contact.html" class="card-cta">Enrol Now</a>
+    </div>
+
+    <!-- Enrichment -->
+    <div class="program-card reveal" style="background:rgba(11,44,74,0.3);">
+      <span class="card-badge" style="background:rgba(198,167,94,0.15);">Add-on · Enrolled students only</span>
+      <div class="card-title">Enrichment Program</div>
+      <div class="card-subtitle">Founder-led · Expert intervention · 5 hours</div>
+      <div class="card-stats">
+        <div class="stat"><span class="stat-val">5h</span><span class="stat-lbl">Mentorship</span></div>
+        <div class="stat"><span class="stat-val">1:1</span><span class="stat-lbl">With Praveen</span></div>
+      </div>
+      <ul class="card-features">
+        <li>Direct training by Praveen Kumar, Founder</li>
+        <li>Personalised to your current band, target & deadline</li>
+        <li>Writing corrected line-by-line</li>
+        <li>Only band-improving interventions — no repetition</li>
+      </ul>
+      <div class="card-price">₹6,000 <span>add-on</span></div>
+      <a href="contact.html" class="card-cta">Add to Program</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section">
+  <div class="reveal">
+    <span class="section-label">Side by side</span>
+    <div class="section-heading"><em>Batch</em> vs One on One</div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:1rem;font-size:1.1rem;">Same faculty. Same quality. Different approach.</p>
+  </div>
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Batch</th>
+          <th>One on One</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Total Classes</td><td>15</td><td>10</td></tr>
+        <tr><td>Total Hours</td><td>30 hours</td><td>20 hours</td></tr>
+        <tr><td>Mode</td><td>Classroom</td><td>Online / Classroom</td></tr>
+        <tr><td>Best For</td><td>First-time takers, guided learners</td><td>Working professionals, fast-trackers</td></tr>
+        <tr><td>Writing Approach</td><td>Standard structures, group practice</td><td>Live correction & rewriting</td></tr>
+        <tr><td>Speaking Practice</td><td>Group format</td><td>Mock interviews, 1:1 feedback</td></tr>
+        <tr><td>Mock Tests</td><td>2 full mocks included</td><td>1 final mock</td></tr>
+        <tr><td>Key Advantage</td><td>Maximum content, best value</td><td>Faster results, personal attention</td></tr>
+        <tr><td>Fee</td><td>₹8,000</td><td>₹20,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="reveal">
+    <span class="section-label">Upcoming Batches</span>
+    <div class="section-heading">Enrol in a<br><em>batch now.</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('online')">Online Batches</button>
+    <button class="tab-btn" onclick="showTab('classroom')">Classroom Batches</button>
+  </div>
+  <div id="tab-online" class="tab-content active reveal">
+    <table class="schedule-table">
+      <thead><tr><th>Batch</th><th>Start Date</th><th>End Date</th><th>Timing (IST)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Morning Batch</td><td>27 Feb 2026</td><td>04 Apr 2026</td><td>08:00 – 09:30 am</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Late Evening Batch</td><td>07 Mar 2026</td><td>14 Apr 2026</td><td>08:00 – 09:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Evening Batch</td><td>11 Mar 2026</td><td>18 Apr 2026</td><td>06:00 – 07:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Morning Batch</td><td>14 Mar 2026</td><td>21 Apr 2026</td><td>08:00 – 09:30 am</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Afternoon Batch</td><td>16 Mar 2026</td><td>23 Apr 2026</td><td>02:30 – 04:00 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Late Evening Batch</td><td>18 Mar 2026</td><td>25 Apr 2026</td><td>10:00 – 11:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Late Evening Batch</td><td>23 Mar 2026</td><td>30 Apr 2026</td><td>08:00 – 09:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tab-classroom" class="tab-content reveal">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--grey);margin-bottom:2rem;">Classroom batches start once 5 students enrol. Contact us to register your interest and we will confirm the schedule.</p>
+    <a href="contact.html" class="card-cta">Register Interest</a>
+  </div>
+</section>
+
+<!-- ENRICHMENT -->
+<section class="enrichment-section">
+  <div class="enrichment-inner">
+    <div class="reveal">
+      <span class="section-label">The Enrichment Program</span>
+      <div class="enrichment-word">Expert<br><em>Intervention.</em></div>
+      <p class="enrichment-body">This is not extra classes. This is 5 hours of direct, founder-led mentorship — for students who want clarity, confidence, and correction, fast.</p>
+      <div class="enrich-price">₹6,000</div>
+      <p class="enrich-note">Available exclusively to enrolled IELTS Batch or One-on-One students.</p>
+      <br>
+      <a href="contact.html" class="card-cta" style="margin-top:1rem;">Add Enrichment</a>
+    </div>
+    <div class="enrichment-features reveal">
+      <div class="enrich-item">
+        <div class="enrich-title">Founder-Led Sessions</div>
+        <div class="enrich-desc">Direct training by Praveen Kumar — years of experience with IELTS and international admissions.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="enrich-item">
+        <div class="enrich-title">High-Impact Methodology</div>
+        <div class="enrich-desc">Focus on why answers score — pattern recognition from hundreds of student scripts and speaking responses.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="enrich-item">
+        <div class="enrich-title">Personal Mentorship</div>
+        <div class="enrich-desc">Sessions customised to your current band, target band, and deadline. Writing corrected line-by-line.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="enrich-item">
+        <div class="enrich-title">Precision Over Volume</div>
+        <div class="enrich-desc">No repetition of batch content. No generic practice. Only band-improving interventions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-word">Your band.<br><em>This month.</em></div>
+  <div class="cta-right">
+    <p class="cta-text">Multiple batch timings available. Enrol today and begin your IELTS journey with figment.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+    <a href="admissions.html">Visa Assist</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>

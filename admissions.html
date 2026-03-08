@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>figment — Admissions Counselling</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;--charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;--muted-ivory:rgba(244,241,236,0.55);}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo{text-decoration:none;}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 30% 70%,#0B2C4A 0%,#000 55%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(5rem,13vw,11rem);line-height:0.88;color:var(--ivory);letter-spacing:-0.02em;display:block;opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:var(--muted-ivory);max-width:560px;line-height:1.7;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1.05;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* TIER SELECTOR */
+.tiers-section{background:var(--charcoal);}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,241,236,0.06);margin-top:3rem;}
+.tier-card{background:var(--charcoal);padding:2.8rem 2rem;position:relative;transition:background 0.3s;}
+.tier-card:hover{background:#222;}
+.tier-card.featured{background:var(--navy);}
+.tier-tag{font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:1rem;display:block;}
+.tier-name{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.tier-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);margin-bottom:1.5rem;}
+.tier-price{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);margin-bottom:0.3rem;}
+.tier-price-note{font-size:0.65rem;color:var(--grey);font-family:'DM Sans',sans-serif;margin-bottom:2rem;}
+.tier-features{list-style:none;}
+.tier-features li{font-size:0.82rem;color:var(--muted-ivory);padding:0.45rem 0 0.45rem 1rem;border-bottom:1px solid rgba(244,241,236,0.05);font-family:'DM Sans',sans-serif;font-weight:300;position:relative;}
+.tier-features li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.tier-cta{display:inline-block;margin-top:2rem;padding:0.75rem 1.8rem;border:1px solid var(--gold);color:var(--gold);font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background 0.3s,color 0.3s;}
+.tier-cta:hover,.tier-cta.primary{background:var(--gold);color:var(--black);}
+.featured-badge{position:absolute;top:1.5rem;right:1.5rem;background:var(--gold);color:var(--black);font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;font-family:'DM Sans',sans-serif;padding:0.3rem 0.7rem;}
+
+/* PROGRAM DETAIL */
+.detail-section{background:var(--black);}
+.detail-block{margin-bottom:5rem;padding-bottom:5rem;border-bottom:1px solid rgba(244,241,236,0.06);}
+.detail-block:last-child{border-bottom:none;margin-bottom:0;}
+.detail-inner{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
+.detail-left{}
+.detail-num{font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(198,167,94,0.2);line-height:1;font-weight:300;}
+.detail-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);font-weight:700;line-height:1.1;margin-top:-0.5rem;}
+.detail-target{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--gold);margin-top:0.5rem;}
+.detail-price{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--ivory);margin-top:1.5rem;}
+.detail-price small{font-size:0.7rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;display:block;}
+.detail-cta{display:inline-block;margin-top:1.5rem;padding:0.75rem 1.8rem;background:var(--gold);color:var(--black);font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background 0.3s;}
+.detail-cta:hover{background:var(--gold-light);}
+.detail-right{}
+.detail-modules{display:flex;flex-direction:column;gap:0;}
+.module-row{display:grid;grid-template-columns:140px 1fr;gap:0;border-top:1px solid rgba(244,241,236,0.08);}
+.module-row:last-child{border-bottom:1px solid rgba(244,241,236,0.08);}
+.module-label{background:var(--navy);padding:1.2rem 1.5rem;font-size:0.72rem;color:var(--ivory);font-family:'DM Sans',sans-serif;font-weight:400;display:flex;align-items:center;}
+.module-content{padding:1.2rem 1.5rem;background:rgba(244,241,236,0.02);}
+.module-content p{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+.module-content p + p{margin-top:0.4rem;}
+
+/* VISA */
+.visa-section{background:var(--charcoal);}
+.visa-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.visa-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,7vw,5.5rem);line-height:0.92;color:var(--ivory);}
+.visa-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.visa-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--muted-ivory);line-height:1.9;margin-top:1.5rem;margin-bottom:2rem;}
+.visa-pricing{display:flex;flex-direction:column;gap:0;margin-top:1rem;}
+.vp-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(244,241,236,0.08);}
+.vp-row:first-child{border-top:1px solid rgba(244,241,236,0.08);}
+.vp-name{font-size:0.82rem;color:var(--ivory);font-family:'DM Sans',sans-serif;}
+.vp-price{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);}
+.visa-modules{display:flex;flex-direction:column;gap:2rem;}
+.vm-item{}
+.vm-title{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:0.5rem;}
+.vm-desc{font-size:0.85rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+.visa-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:rgba(138,143,150,0.7);margin-top:2rem;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:1000px){.tier-grid{grid-template-columns:1fr;}.detail-inner{grid-template-columns:1fr;gap:2.5rem;}.visa-inner{grid-template-columns:1fr;}}
+@media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}.module-row{grid-template-columns:1fr;}.module-label{padding:0.8rem 1rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html">IELTS</a>
+    <a href="gre.html">GRE</a>
+    <a href="admissions.html" class="active">Admissions</a>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-tag">Admissions Counselling — figment</span>
+  <span class="hero-word">Get<br><em>Admitted.</em></span>
+  <p class="hero-desc">From Harvard to Heidelberg, Toronto to Tokyo — strategic admissions counselling for every tier of global university, with full support from application to visa.</p>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-section">
+  <div class="reveal">
+    <span class="section-label">Admissions Programs</span>
+    <div class="section-heading">Choose your<br><em>tier.</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--grey);">Every program is led by experienced counsellors who know what top universities actually want.</p>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card featured reveal">
+      <span class="featured-badge">Most Comprehensive</span>
+      <span class="tier-tag">Top 20 Global Universities</span>
+      <div class="tier-name">Elite Admit</div>
+      <div class="tier-sub">Harvard · Stanford · MIT · Oxford · Cambridge · Yale</div>
+      <div class="tier-price">₹2,25,000</div>
+      <div class="tier-price-note">Full-service admissions support</div>
+      <ul class="tier-features">
+        <li>University shortlisting — up to 12 universities</li>
+        <li>Deep-dive SOP & Personal Statement development</li>
+        <li>Unlimited SOP refinements within timeline</li>
+        <li>LOR strategy & guidance</li>
+        <li>Resume building & optimisation</li>
+        <li>Interview preparation (mock interviews)</li>
+        <li>Scholarship strategy guidance</li>
+        <li>Financial & visa documentation guidance</li>
+        <li>Priority review turnaround</li>
+        <li>Direct senior mentor involvement</li>
+      </ul>
+      <a href="contact.html" class="tier-cta primary">Apply Now</a>
+    </div>
+    <div class="tier-card reveal">
+      <span class="tier-tag">Top 50 Global Universities</span>
+      <div class="tier-name">Select Admit</div>
+      <div class="tier-sub">Toronto · Michigan · Edinburgh · NUS · Melbourne · King's</div>
+      <div class="tier-price">₹1,25,000</div>
+      <div class="tier-price-note">Comprehensive admissions support</div>
+      <ul class="tier-features">
+        <li>University shortlisting — up to 10 universities</li>
+        <li>SOP & Personal Statement drafting</li>
+        <li>Essay editing support</li>
+        <li>LOR guidance</li>
+        <li>Resume refinement</li>
+        <li>Interview preparation (1 mock)</li>
+        <li>Visa counselling included</li>
+        <li>Scholarship guidance (basic level)</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Apply Now</a>
+    </div>
+    <div class="tier-card reveal">
+      <span class="tier-tag">Top 250 Global Universities</span>
+      <div class="tier-name">Global Admit</div>
+      <div class="tier-sub">ASU · Deakin · Leicester · uOttawa · DCU · UCLan</div>
+      <div class="tier-price">₹55,000</div>
+      <div class="tier-price-note">Structured application support</div>
+      <ul class="tier-features">
+        <li>University suggestions — up to 8 universities</li>
+        <li>Profile eligibility assessment</li>
+        <li>SOP drafting support</li>
+        <li>LOR guidance</li>
+        <li>Resume format template</li>
+        <li>Visa checklist & documentation guidance</li>
+      </ul>
+      <a href="contact.html" class="tier-cta">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM DETAILS -->
+<section class="detail-section">
+  <div class="reveal">
+    <span class="section-label">Program Breakdown</span>
+    <div class="section-heading"><em>What's</em> included.</div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- ELITE -->
+  <div class="detail-block reveal">
+    <div class="detail-inner">
+      <div class="detail-left">
+        <div class="detail-num">01</div>
+        <div class="detail-name">Elite Admit Program</div>
+        <div class="detail-target">Top 20 Global Universities</div>
+        <div class="detail-price">₹2,25,000<small>Full program fee</small></div>
+        <a href="contact.html" class="detail-cta">Enquire Now</a>
+      </div>
+      <div class="detail-right">
+        <div class="detail-modules">
+          <div class="module-row"><div class="module-label">Strategic Planning</div><div class="module-content"><p>Personalised profile evaluation · University shortlisting (up to 12) · Gap analysis & positioning strategy · Application timeline planning</p></div></div>
+          <div class="module-row"><div class="module-label">Application Support</div><div class="module-content"><p>Deep-dive SOP & Personal Statement development · Essay brainstorming workshops · Unlimited SOP refinements · LOR strategy & guidance · Resume building & optimisation</p></div></div>
+          <div class="module-row"><div class="module-label">Advanced Support</div><div class="module-content"><p>Interview preparation (mock interviews) · Scholarship strategy guidance · Financial documentation guidance · Visa counselling included</p></div></div>
+          <div class="module-row"><div class="module-label">Access</div><div class="module-content"><p>Priority review turnaround · Direct senior mentor involvement throughout</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELECT -->
+  <div class="detail-block reveal">
+    <div class="detail-inner">
+      <div class="detail-left">
+        <div class="detail-num">02</div>
+        <div class="detail-name">Select Admit Program</div>
+        <div class="detail-target">Top 50 Global Universities</div>
+        <div class="detail-price">₹1,25,000<small>Full program fee</small></div>
+        <a href="contact.html" class="detail-cta">Enquire Now</a>
+      </div>
+      <div class="detail-right">
+        <div class="detail-modules">
+          <div class="module-row"><div class="module-label">Strategic Planning</div><div class="module-content"><p>Profile evaluation · University shortlisting (up to 10) · Application planning roadmap</p></div></div>
+          <div class="module-row"><div class="module-label">Application Support</div><div class="module-content"><p>SOP & Personal Statement drafting · Essay editing support · LOR guidance · Resume refinement</p></div></div>
+          <div class="module-row"><div class="module-label">Advanced Support</div><div class="module-content"><p>Interview preparation (1 mock) · Visa counselling included · Scholarship guidance (basic level)</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GERMANY -->
+  <div class="detail-block reveal">
+    <div class="detail-inner">
+      <div class="detail-left">
+        <div class="detail-num">03</div>
+        <div class="detail-name">Germany Structured Admit</div>
+        <div class="detail-target">TUM · RWTH · Heidelberg · LMU · Stuttgart</div>
+        <div class="detail-price">₹85,000<small>Full documentation-focused program</small></div>
+        <div style="margin-top:0.5rem;font-size:0.8rem;color:var(--grey);font-family:'DM Sans',sans-serif;">Also available at ₹49,000 — limited scope</div>
+        <a href="contact.html" class="detail-cta" style="margin-top:1.5rem;">Enquire Now</a>
+      </div>
+      <div class="detail-right">
+        <div class="detail-modules">
+          <div class="module-row"><div class="module-label">Foundation Support</div><div class="module-content"><p>APS readiness check · Course & university shortlisting (up to 8) · Credit mapping & eligibility guidance · Uni-Assist process orientation · Application checklist planning</p></div></div>
+          <div class="module-row"><div class="module-label">Application Support</div><div class="module-content"><p>Motivation Letter (SOP) drafting · CV refinement (German format) · LOR guidance · Uni-Assist filing support · Document verification guidance</p></div></div>
+          <div class="module-row"><div class="module-label">Final Stage</div><div class="module-content"><p>APS documentation support · Blocked account guidance · Visa checklist & documentation · Pre-departure orientation</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL & INTERNATIONAL -->
+  <div class="detail-block reveal">
+    <div class="detail-inner">
+      <div class="detail-left">
+        <div class="detail-num">04</div>
+        <div class="detail-name">Global Admit Program</div>
+        <div class="detail-target">Top 250 Global Universities</div>
+        <div class="detail-price">₹55,000<small>Full program fee</small></div>
+        <a href="contact.html" class="detail-cta">Enquire Now</a>
+      </div>
+      <div class="detail-right">
+        <div class="detail-modules">
+          <div class="module-row"><div class="module-label">Foundation Support</div><div class="module-content"><p>Profile eligibility assessment · Course & university shortlisting (up to 8) · Credit mapping & eligibility guidance · Application checklist planning</p></div></div>
+          <div class="module-row"><div class="module-label">Application Support</div><div class="module-content"><p>SOP drafting support · CV refinement · LOR guidance · Document verification guidance</p></div></div>
+          <div class="module-row"><div class="module-label">Final Stage</div><div class="module-content"><p>Visa checklist & documentation guidance · Pre-departure orientation</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNATIONAL PATHWAY -->
+  <div class="detail-block reveal">
+    <div class="detail-inner">
+      <div class="detail-left">
+        <div class="detail-num">05</div>
+        <div class="detail-name">International Pathway Program</div>
+        <div class="detail-target">For first-time applicants</div>
+        <div class="detail-price">₹20,000<small>Entry-level program</small></div>
+        <a href="contact.html" class="detail-cta">Enquire Now</a>
+      </div>
+      <div class="detail-right">
+        <div class="detail-modules">
+          <div class="module-row"><div class="module-label">Foundation Support</div><div class="module-content"><p>Basic profile assessment · Course & country-level guidance · University suggestions (up to 5 options) · Application roadmap & checklist</p></div></div>
+          <div class="module-row"><div class="module-label">Application Support</div><div class="module-content"><p>SOP template + structured editing (1 revision) · Resume template (international format) · Application form guidance · Document checklist support</p></div></div>
+          <div class="module-row"><div class="module-label">Final Stage</div><div class="module-content"><p>Visa documentation checklist · Pre-departure guidance session (group)</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISA -->
+<section class="visa-section">
+  <div class="visa-inner">
+    <div class="reveal">
+      <span class="section-label">Visa Support</span>
+      <div class="visa-word">Visa<br><em>Sorted.</em></div>
+      <p class="visa-body">From documentation review to mock visa interviews — we handle the complexity so you can focus on what matters.</p>
+      <div class="visa-pricing">
+        <div class="vp-row"><span class="vp-name">Standard Countries (UK, Canada, Australia)</span><span class="vp-price">₹12,000</span></div>
+        <div class="vp-row"><span class="vp-name">Interview-Based (USA)</span><span class="vp-price">₹18,000</span></div>
+        <div class="vp-row"><span class="vp-name">Complex Documentation Cases</span><span class="vp-price">₹20,000</span></div>
+      </div>
+      <p class="visa-note">Visa approval is subject to embassy discretion.</p>
+      <br>
+      <a href="contact.html" style="display:inline-block;margin-top:1rem;padding:0.8rem 2rem;border:1px solid var(--gold);color:var(--gold);font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background 0.3s,color 0.3s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--black)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Enquire About Visa Assist</a>
+    </div>
+    <div class="visa-modules reveal">
+      <div class="vm-item">
+        <div class="vm-title">Documentation Review</div>
+        <div class="vm-desc">Visa eligibility check · Country-specific documentation checklist · Financial documents verification · SOP / visa statement review</div>
+      </div>
+      <div class="divider"></div>
+      <div class="vm-item">
+        <div class="vm-title">Application Support</div>
+        <div class="vm-desc">Visa application form guidance · Appointment booking assistance · Biometrics process guidance · File organisation & final document review</div>
+      </div>
+      <div class="divider"></div>
+      <div class="vm-item">
+        <div class="vm-title">Final Stage</div>
+        <div class="vm-desc">Mock visa interview guidance (where applicable) · Pre-departure compliance briefing · Travel & initial landing checklist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-word">Your<br><em>admission</em><br>awaits.</div>
+  <div class="cta-right">
+    <p class="cta-text">Book a free consultation. We'll evaluate your profile and recommend the program that gives you the best chance of admission.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+    <a href="admissions.html">Visa Assist</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>

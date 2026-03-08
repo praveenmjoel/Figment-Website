@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>figment — GRE Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;--charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;--muted-ivory:rgba(244,241,236,0.55);}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo{text-decoration:none;}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 80% 20%,#0B2C4A 0%,#000 60%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(6rem,15vw,12rem);line-height:0.88;color:var(--ivory);letter-spacing:-0.02em;display:block;opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:var(--muted-ivory);max-width:520px;line-height:1.7;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1.05;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* PROGRAM HIGHLIGHT */
+.program-highlight{background:var(--charcoal);}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
+.highlight-left{}
+.big-stat{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4rem,10vw,8rem);color:var(--gold);line-height:0.9;}
+.big-stat-label{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);font-family:'DM Sans',sans-serif;margin-top:0.5rem;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(244,241,236,0.08);}
+.s-item{}
+.s-val{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--ivory);}
+.s-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-top:0.3rem;}
+.highlight-right{}
+.feature-list{list-style:none;margin-top:2rem;}
+.feature-list li{padding:1.2rem 0;border-bottom:1px solid rgba(244,241,236,0.06);display:flex;gap:1rem;align-items:flex-start;}
+.feature-list li:first-child{border-top:1px solid rgba(244,241,236,0.06);}
+.feat-num{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);min-width:1.5rem;}
+.feat-title{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;margin-bottom:0.3rem;}
+.feat-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+
+/* CARD */
+.batch-section{background:var(--black);}
+.batch-card{border:1px solid rgba(244,241,236,0.1);padding:3.5rem;margin-top:3rem;position:relative;overflow:hidden;}
+.batch-card::before{content:'GRE';position:absolute;right:-1rem;top:-2rem;font-family:'Playfair Display',serif;font-weight:900;font-size:8rem;color:rgba(198,167,94,0.04);line-height:1;pointer-events:none;}
+.card-badge{display:inline-block;padding:0.3rem 1rem;background:var(--navy);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:2rem;}
+.card-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.card-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--grey);margin-bottom:2rem;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin:2rem 0;}
+.cg-item{text-align:center;padding:1.5rem;background:rgba(244,241,236,0.03);}
+.cg-val{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);}
+.cg-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-top:0.3rem;}
+.card-features{list-style:none;margin:2rem 0;}
+.card-features li{font-size:0.85rem;color:var(--muted-ivory);padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(244,241,236,0.05);font-family:'DM Sans',sans-serif;font-weight:300;position:relative;}
+.card-features li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.price-row{display:flex;align-items:flex-end;gap:2rem;justify-content:space-between;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(244,241,236,0.08);}
+.price-big{font-family:'Playfair Display',serif;font-size:3rem;color:var(--ivory);}
+.price-note{font-size:0.72rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-style:italic;}
+.btn-gold{display:inline-block;padding:1rem 2.8rem;background:var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-gold:hover{background:var(--gold-light);}
+
+/* SCHEDULE */
+.schedule-section{background:var(--charcoal);}
+.schedule-table{width:100%;border-collapse:collapse;margin-top:2.5rem;}
+.schedule-table th{padding:1rem 1.5rem;text-align:left;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.12);}
+.schedule-table td{padding:1rem 1.5rem;font-size:0.85rem;color:var(--muted-ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.05);}
+.schedule-table td:first-child{color:var(--ivory);font-weight:400;}
+.badge-open{display:inline-block;padding:0.2rem 0.6rem;background:rgba(198,167,94,0.15);color:var(--gold);font-size:0.6rem;letter-spacing:0.2em;font-family:'DM Sans',sans-serif;}
+
+/* WHY */
+.why-section{background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.why-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,7vw,5.5rem);line-height:0.92;color:var(--ivory);}
+.why-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.why-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);line-height:1.9;margin-top:1.5rem;}
+.why-points{list-style:none;}
+.why-points li{padding:1rem 0;border-bottom:1px solid rgba(244,241,236,0.08);font-size:0.88rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;padding-left:1.2rem;position:relative;}
+.why-points li::before{content:'◆';position:absolute;left:0;font-size:0.4rem;color:var(--gold);top:1.1rem;}
+.why-points li strong{color:var(--ivory);font-weight:400;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}.highlight-grid,.why-inner{grid-template-columns:1fr;gap:2.5rem;}.card-grid{grid-template-columns:1fr;}.stats-row{grid-template-columns:1fr 1fr;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html">IELTS</a>
+    <a href="gre.html" class="active">GRE</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <span class="hero-tag">GRE Coaching — figment</span>
+  <span class="hero-word">Your<br><em>Score.</em><br>Unlocked.</span>
+  <p class="hero-desc">75 hours of intensive training. 50 sessions. 10 full-length mock tests. The GRE score that secures your admission to the world's best graduate programs.</p>
+</section>
+
+<!-- PROGRAM HIGHLIGHT -->
+<section class="program-highlight">
+  <div class="reveal">
+    <span class="section-label">GRE Batch Program — Online</span>
+    <div class="section-heading">Intensive.<br><em>Comprehensive.</em></div>
+  </div>
+  <div class="highlight-grid">
+    <div class="highlight-left reveal">
+      <div class="big-stat">75</div>
+      <div class="big-stat-label">Hours of Total Training</div>
+      <div class="stats-row">
+        <div class="s-item"><div class="s-val">50</div><div class="s-lbl">Sessions</div></div>
+        <div class="s-item"><div class="s-val">10</div><div class="s-lbl">Mock Tests</div></div>
+        <div class="s-item"><div class="s-val">1.5h</div><div class="s-lbl">Per Class</div></div>
+      </div>
+    </div>
+    <div class="highlight-right reveal">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);line-height:1.9;margin-bottom:2rem;">The GRE demands more than vocabulary and formulas. It demands strategy. Our 75-hour program is engineered to give you both — the knowledge and the exam intelligence to use it.</p>
+      <ul class="feature-list">
+        <li><span class="feat-num">01</span><div><div class="feat-title">Study Materials Provided</div><div class="feat-desc">Curated materials aligned with the current GRE format — no need to source your own.</div></div></li>
+        <li><span class="feat-num">02</span><div><div class="feat-title">Class Recordings Available</div><div class="feat-desc">Missed a session? Every class is recorded so you never fall behind.</div></div></li>
+        <li><span class="feat-num">03</span><div><div class="feat-title">10 Full-Length Mock Tests</div><div class="feat-desc">Real exam simulation to build your speed, accuracy, and confidence before test day.</div></div></li>
+        <li><span class="feat-num">04</span><div><div class="feat-title">Instructor-Led, Online</div><div class="feat-desc">Live interaction with experienced faculty — not pre-recorded lectures.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BATCH CARD -->
+<section class="batch-section">
+  <div class="reveal">
+    <span class="section-label">Enrol Now</span>
+    <div class="section-heading">GRE Batch<br><em>Online</em></div>
+  </div>
+  <div class="batch-card reveal">
+    <span class="card-badge">Partner Run · Online</span>
+    <div class="card-title">GRE Batch Program — Online</div>
+    <div class="card-subtitle">50 intensive sessions across Verbal Reasoning, Quantitative Reasoning & Analytical Writing</div>
+    <div class="card-grid">
+      <div class="cg-item"><div class="cg-val">50</div><div class="cg-lbl">Total Classes</div></div>
+      <div class="cg-item"><div class="cg-val">75h</div><div class="cg-lbl">Training Hours</div></div>
+      <div class="cg-item"><div class="cg-val">10</div><div class="cg-lbl">Mock Tests</div></div>
+    </div>
+    <ul class="card-features">
+      <li>Verbal Reasoning — vocabulary, reading comprehension, text completion</li>
+      <li>Quantitative Reasoning — arithmetic, algebra, geometry, data analysis</li>
+      <li>Analytical Writing — issue & argument essays, scoring strategy</li>
+      <li>Study materials provided + class recordings available</li>
+      <li>Live instructor-led sessions — not pre-recorded</li>
+    </ul>
+    <div class="price-row">
+      <div>
+        <div class="price-big">₹8,000</div>
+        <div class="price-note">One-time fee · Full program access</div>
+      </div>
+      <a href="contact.html" class="btn-gold">Enrol Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="reveal">
+    <span class="section-label">Upcoming Batches</span>
+    <div class="section-heading">Batches <em>starting now.</em></div>
+    <div class="divider" style="width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;"></div>
+  </div>
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="schedule-table">
+      <thead><tr><th>Batch</th><th>Start Date</th><th>End Date</th><th>Timing (IST)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Late Evening Batch</td><td>23 Feb 2026</td><td>23 Apr 2026</td><td>08:00 – 09:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Late Evening Batch</td><td>13 Mar 2026</td><td>13 May 2026</td><td>08:00 – 09:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:2rem;font-size:1rem;">More batches being scheduled. Contact us to register your preferred timing.</p>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="reveal">
+      <span class="section-label">Why GRE with figment</span>
+      <div class="why-word">Not just<br>prep.<br><em>Mastery.</em></div>
+      <p class="why-body">We train students to understand the GRE — not memorise it. That's the difference between a good score and a great one.</p>
+    </div>
+    <div class="reveal">
+      <ul class="why-points">
+        <li><strong>75 hours of structured training</strong> — the depth your target school demands</li>
+        <li><strong>10 full-length mocks</strong> — so you've already done the exam before exam day</li>
+        <li><strong>Materials included</strong> — no additional costs, no wasted time sourcing content</li>
+        <li><strong>Recordings available</strong> — learn at your own pace while staying on track</li>
+        <li><strong>Expert faculty</strong> — the same team behind figment's IELTS success rates</li>
+        <li><strong>Small batch sizes</strong> — for quality instruction, not volume coaching</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-word">Begin your<br><em>GRE journey.</em></div>
+  <div class="cta-right">
+    <p class="cta-text">Two batches currently open. Secure your seat today before spaces fill up.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+    <a href="admissions.html">Visa Assist</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
