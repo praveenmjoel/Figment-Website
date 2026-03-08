@@ -11,7 +11,7 @@
  */
 
 // ─── CONFIGURATION ───────────────────────────────────────────────────────────
-define('CLICKUP_API_TOKEN', 'YOUR_CLICKUP_API_TOKEN_HERE');
+define('CLICKUP_API_TOKEN', 'pk_152521978_7EHF7ITXDVC0YYXJYKYYGY85RBZF66CC');
 define('CLICKUP_LIST_ID',   '901605214737'); // Figment Database
 define('ALLOWED_ORIGIN',    'https://figment.global');
 // ─────────────────────────────────────────────────────────────────────────────
