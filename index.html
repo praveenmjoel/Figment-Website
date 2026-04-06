@@ -1192,6 +1192,8 @@ submitBtn.addEventListener('click', async () => {
   const CU_TOKEN   = 'pk_152521978_7EHF7ITXDVC0YYXJYKYYGY85RBZF66CC';
   const CU_HEADERS = {'Authorization': CU_TOKEN, 'Content-Type': 'application/json'};
   const fullName   = [firstName, lastName].filter(Boolean).join(' ');
+  const digits     = phone.replace(/\D/g,'');
+  const phoneE164  = digits.startsWith('91') && digits.length===12 ? '+'+digits : '+91'+digits;
   const now        = new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata',
                        day:'2-digit', month:'short', year:'numeric',
                        hour:'2-digit', minute:'2-digit'});
@@ -1211,29 +1213,39 @@ submitBtn.addEventListener('click', async () => {
     // ── 1. Create ClickUp task ──────────────────────────────────────────────
     const taskRes  = await fetch('https://api.clickup.com/api/v2/list/901605214737/task', {
       method: 'POST', headers: CU_HEADERS,
-      body: JSON.stringify({name: taskName, description, status:'to do', priority:2, tags:['website-enquiry']})
+      body: JSON.stringify({
+        name: taskName, description, status:'to do', priority:2,
+        tags: ['website-enquiry'],
+        custom_fields: [
+          {id:'046eee55-2753-4209-9e07-a57a472a0e92', value: email},
+          {id:'11e5ef8a-5870-4da1-9bc7-7fc5c72d8dfe', value: phoneE164},
+          {id:'49cdb879-1668-4e1a-a085-e27faacbd0c7', value: 3},
+          {id:'1c1eb4b5-fdbd-41f1-a71f-00a6b0d97bf6', value: 0}
+        ]
+      })
     });
     const taskData = await taskRes.json();
 
     if (!taskRes.ok || !taskData.id) throw new Error('Task creation failed');
 
-    // ── 2. Post to Marketing channel ────────────────────────────────────────
-    const taskUrl = `https://app.clickup.com/t/${taskData.id}`;
-    const chatMsg =
-      `**New Website Enquiry — figment.global**\n\n` +
-      `**Name:** ${fullName}\n**Phone:** ${phone || '—'}\n**Email:** ${email}` +
-      (program ? `\n**Program:** ${program}` : '') +
-      (target  ? `\n**Target:** ${target}`   : '') +
-      `\n\n[View Task in ClickUp](${taskUrl})`;
-
-    await fetch('https://api.clickup.com/api/v3/workspaces/9016591512/chat/channels/4-90162159784-8/messages', {
-      method: 'POST', headers: CU_HEADERS,
-      body: JSON.stringify({content: chatMsg, content_format:'text/md', type:'message'})
-    });
-
-    // ── 3. Show success ─────────────────────────────────────────────────────
+    // ── 2. Show success immediately — task is created ───────────────────────
     document.getElementById('modalForm').style.display    = 'none';
     document.getElementById('modalSuccess').style.display = 'block';
+
+    // ── 3. Post to Marketing channel (best-effort — CORS may block in browser)
+    try {
+      const taskUrl = `https://app.clickup.com/t/${taskData.id}`;
+      const chatMsg =
+        `**New Website Enquiry — figment.global**\n\n` +
+        `**Name:** ${fullName}\n**Phone:** ${phone || '—'}\n**Email:** ${email}` +
+        (program ? `\n**Program:** ${program}` : '') +
+        (target  ? `\n**Target:** ${target}`   : '') +
+        `\n\n[View Task in ClickUp](${taskUrl})`;
+      await fetch('https://api.clickup.com/api/v3/workspaces/9016591512/chat/channels/4-90162159784-8/messages', {
+        method: 'POST', headers: CU_HEADERS,
+        body: JSON.stringify({content: chatMsg, content_format:'text/md', type:'message'})
+      });
+    } catch(_) { /* non-critical — Marketing channel notified via ClickUp Automation */ }
 
   } catch(err) {
     errorBox.textContent = 'Something went wrong. Please email us at info@figment.global';
