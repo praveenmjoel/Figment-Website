@@ -1198,7 +1198,7 @@ submitBtn.addEventListener('click', async () => {
                        day:'2-digit', month:'short', year:'numeric',
                        hour:'2-digit', minute:'2-digit'});
 
-  const taskName = `Website Enquiry — ${fullName}${program ? ' · ' + program : ''}`;
+  const taskName = fullName;
   const description =
     `## Website Enquiry — figment.global\n\n**Submitted:** ${now}\n\n---\n\n` +
     `### Contact Details\n**Name:** ${fullName}\n**Email:** ${email}\n` +
