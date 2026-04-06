@@ -12,8 +12,10 @@
 
 // ─── CONFIGURATION ───────────────────────────────────────────────────────────
 define('CLICKUP_API_TOKEN', 'pk_152521978_7EHF7ITXDVC0YYXJYKYYGY85RBZF66CC');
-define('CLICKUP_LIST_ID',   '901605214737'); // Figment Database
-define('ALLOWED_ORIGIN',    'https://figment.global');
+define('CLICKUP_LIST_ID',     '901605214737'); // Figment Database
+define('CLICKUP_WORKSPACE_ID','9016591512');
+define('CLICKUP_CHANNEL_ID',  '4-90162159784-8'); // Marketing channel
+define('ALLOWED_ORIGIN',      'https://figment.global');
 // ─────────────────────────────────────────────────────────────────────────────
 
 header('Content-Type: application/json');
@@ -120,6 +122,53 @@ if ($curlError) {
 $responseData = json_decode($response, true);
 
 if ($httpCode === 200 && isset($responseData['id'])) {
+
+    // ── Post to Marketing channel ────────────────────────────────────────────
+    $taskUrl     = 'https://app.clickup.com/t/' . $responseData['id'];
+    $programLine = $program ? "\n**Program:** $program" : '';
+    $targetLine  = $target  ? "\n**Target:** $target"   : '';
+
+    $chatMessage = "**New Website Enquiry — figment.global**\n\n"
+        . "**Name:** $fullName\n"
+        . "**Phone:** " . ($phone ?: '—') . "\n"
+        . "**Email:** $email"
+        . $programLine
+        . $targetLine
+        . "\n\n[View Task in ClickUp]($taskUrl)";
+
+    $chatPayload = [
+        'content'        => $chatMessage,
+        'content_format' => 'text/md',
+        'type'           => 'message',
+    ];
+
+    $chatUrl = 'https://api.clickup.com/api/v3/workspaces/'
+        . CLICKUP_WORKSPACE_ID
+        . '/chat/channels/'
+        . CLICKUP_CHANNEL_ID
+        . '/messages';
+
+    $ch2 = curl_init($chatUrl);
+    curl_setopt_array($ch2, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => json_encode($chatPayload),
+        CURLOPT_HTTPHEADER     => [
+            'Authorization: ' . CLICKUP_API_TOKEN,
+            'Content-Type: application/json',
+        ],
+        CURLOPT_TIMEOUT        => 10,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+    $chatResponse = curl_exec($ch2);
+    $chatCode     = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+    curl_close($ch2);
+
+    if ($chatCode !== 200) {
+        error_log("figment/submit.php chat error $chatCode: $chatResponse");
+    }
+    // ─────────────────────────────────────────────────────────────────────────
+
     echo json_encode([
         'success'  => true,
         'message'  => 'Enquiry received! We will be in touch within 24 hours.',

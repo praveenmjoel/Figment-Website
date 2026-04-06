@@ -7,6 +7,7 @@
 <meta name="description" content="Figment is Madurai's premium study abroad institute. Expert GRE, GMAT, IELTS &amp; SAT coaching plus end-to-end admissions counselling for the USA, UK, Canada and Germany. Book a free consultation today.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://figment.global/">
+<link rel="icon" type="image/png" href="/Favicon_Figment.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Figment — Study Abroad Counselling &amp; Coaching in Madurai">
 <meta property="og:description" content="Expert GRE, GMAT, IELTS &amp; SAT coaching combined with end-to-end university admissions support for USA, UK, Canada and Germany. Based in Madurai, Tamil Nadu.">
@@ -554,6 +555,94 @@ footer{
   .hero-word{font-size:clamp(3.5rem,16vw,6rem);}
 }
 
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.88);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;opacity:0;pointer-events:none;
+  transition:opacity 0.35s ease;
+}
+.modal-overlay.active{opacity:1;pointer-events:all;}
+.modal{
+  background:var(--charcoal);
+  border:1px solid rgba(198,167,94,0.18);
+  width:100%;max-width:560px;max-height:90vh;
+  overflow-y:auto;padding:3rem;position:relative;
+  transform:translateY(20px);transition:transform 0.35s ease;
+}
+.modal-overlay.active .modal{transform:translateY(0);}
+.modal-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  background:none;border:none;cursor:pointer;
+  color:rgba(244,241,236,0.4);font-size:1.4rem;line-height:1;
+  transition:color 0.2s;font-family:'DM Sans',sans-serif;
+}
+.modal-close:hover{color:var(--gold);}
+.modal-eyebrow{
+  font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;
+  color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:1rem;display:block;
+}
+.modal-title{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(1.6rem,4vw,2.2rem);color:var(--ivory);
+  line-height:1.1;margin-bottom:0.5rem;
+}
+.modal-title em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.modal-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1rem;color:var(--grey);margin-bottom:2rem;line-height:1.6;
+}
+.modal-divider{width:36px;height:1px;background:var(--gold);opacity:0.4;margin-bottom:2rem;}
+.m-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;}
+.m-group{display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.2rem;}
+.m-group.full{grid-column:1/-1;}
+.m-group label{
+  font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--grey);font-family:'DM Sans',sans-serif;
+}
+.m-group input,.m-group select,.m-group textarea{
+  background:rgba(244,241,236,0.04);border:1px solid rgba(244,241,236,0.1);
+  color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.88rem;
+  font-weight:300;padding:0.85rem 1rem;outline:none;width:100%;
+  transition:border-color 0.3s;appearance:none;-webkit-appearance:none;
+}
+.m-group input:focus,.m-group select:focus,.m-group textarea:focus{border-color:var(--gold);}
+.m-group input::placeholder,.m-group textarea::placeholder{color:var(--grey);opacity:0.45;}
+.m-group select option{background:var(--charcoal);color:var(--ivory);}
+.m-group textarea{resize:vertical;min-height:90px;}
+.modal-submit{
+  width:100%;padding:1.05rem;background:var(--gold);color:var(--black);
+  font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;
+  letter-spacing:0.35em;text-transform:uppercase;border:none;cursor:pointer;
+  transition:background 0.3s;margin-top:0.5rem;
+}
+.modal-submit:hover:not(:disabled){background:var(--gold-light);}
+.modal-submit:disabled{opacity:0.6;cursor:not-allowed;}
+.modal-success{
+  display:none;text-align:center;padding:2rem 0;
+}
+.modal-success-icon{
+  font-size:2rem;color:var(--gold);margin-bottom:1rem;
+}
+.modal-success h3{
+  font-family:'Playfair Display',serif;font-size:1.4rem;
+  color:var(--ivory);margin-bottom:0.75rem;
+}
+.modal-success p{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1rem;color:var(--grey);line-height:1.7;
+}
+.modal-error{
+  display:none;background:rgba(220,60,60,0.08);border:1px solid rgba(220,60,60,0.3);
+  padding:0.8rem 1rem;margin-top:0.8rem;
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;color:#e07070;
+}
+@media(max-width:600px){
+  .modal{padding:2rem 1.5rem;}
+  .m-row{grid-template-columns:1fr;}
+}
+
 /* ── FAQ ── */
 .faq{background:var(--black);}
 .faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:flex-start;}
@@ -618,7 +707,7 @@ footer{
   <p class="hero-sub">Expert IELTS &amp; GRE coaching. Admissions counselling for the world's finest universities. One goal — your admission.</p>
   <div class="hero-actions">
     <a href="admissions.html" class="btn-primary">Explore Programs</a>
-    <a href="contact.html" class="btn-ghost">Speak to a Counsellor</a>
+    <button class="btn-ghost" id="openModal">Speak to a Counsellor</button>
   </div>
   <div class="hero-scroll-line">
     <div class="scroll-bar"></div>
@@ -977,6 +1066,78 @@ footer{
   <p>figment.global</p>
 </div>
 
+<!-- LEAD CAPTURE MODAL -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
+    <span class="modal-eyebrow">Free Consultation</span>
+    <h2 class="modal-title" id="modalTitle">Let's map your<br><em>path abroad.</em></h2>
+    <p class="modal-sub">Tell us a little about yourself and we'll be in touch within 24 hours.</p>
+    <div class="modal-divider"></div>
+
+    <div id="modalForm">
+      <div class="m-row">
+        <div class="m-group">
+          <label for="m-firstName">First Name *</label>
+          <input type="text" id="m-firstName" placeholder="Arun" required>
+        </div>
+        <div class="m-group">
+          <label for="m-lastName">Last Name</label>
+          <input type="text" id="m-lastName" placeholder="Kumar">
+        </div>
+      </div>
+      <div class="m-row">
+        <div class="m-group">
+          <label for="m-phone">Phone *</label>
+          <input type="tel" id="m-phone" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="m-group">
+          <label for="m-email">Email *</label>
+          <input type="email" id="m-email" placeholder="arun@email.com" required>
+        </div>
+      </div>
+      <div class="m-row">
+        <div class="m-group">
+          <label for="m-program">Program of Interest</label>
+          <select id="m-program">
+            <option value="" disabled selected>Select a program</option>
+            <option>IELTS Coaching</option>
+            <option>GRE Coaching</option>
+            <option>GMAT Coaching</option>
+            <option>SAT Coaching</option>
+            <option>Admissions Counselling</option>
+            <option>Germany Admissions + APS</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="m-group">
+          <label for="m-target">Target Country</label>
+          <select id="m-target">
+            <option value="" disabled selected>Select a country</option>
+            <option>USA</option>
+            <option>Germany</option>
+            <option>UK</option>
+            <option>Canada</option>
+            <option>Multiple / Not decided</option>
+          </select>
+        </div>
+      </div>
+      <div class="m-group">
+        <label for="m-message">Anything else you'd like us to know</label>
+        <textarea id="m-message" placeholder="Current qualification, exam scores, target intake…"></textarea>
+      </div>
+      <button class="modal-submit" id="modalSubmit">Book Free Consultation</button>
+      <div class="modal-error" id="modalError"></div>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">&#10003;</div>
+      <h3>You're all set.</h3>
+      <p>We've received your enquiry and a counsellor will reach out to you within 24 hours. Keep an eye on your phone and inbox.</p>
+    </div>
+  </div>
+</div>
+
 <script>
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn => {
@@ -992,6 +1153,63 @@ document.querySelectorAll('.faq-question').forEach(btn => {
       btn.setAttribute('aria-expanded', 'true');
     }
   });
+});
+
+// Modal
+const overlay   = document.getElementById('modalOverlay');
+const openBtn   = document.getElementById('openModal');
+const closeBtn  = document.getElementById('closeModal');
+const submitBtn = document.getElementById('modalSubmit');
+const errorBox  = document.getElementById('modalError');
+
+function openModal(){overlay.classList.add('active');document.body.style.overflow='hidden';}
+function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+submitBtn.addEventListener('click', async () => {
+  const firstName = document.getElementById('m-firstName').value.trim();
+  const lastName  = document.getElementById('m-lastName').value.trim();
+  const phone     = document.getElementById('m-phone').value.trim();
+  const email     = document.getElementById('m-email').value.trim();
+  const program   = document.getElementById('m-program').value;
+  const target    = document.getElementById('m-target').value;
+  const message   = document.getElementById('m-message').value.trim();
+
+  errorBox.style.display = 'none';
+
+  if(!firstName){ errorBox.textContent='Please enter your first name.'; errorBox.style.display='block'; return; }
+  if(!phone){ errorBox.textContent='Please enter your phone number.'; errorBox.style.display='block'; return; }
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errorBox.textContent='Please enter a valid email address.'; errorBox.style.display='block'; return; }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch('/submit.php', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({firstName, lastName, phone, email, program, target, message})
+    });
+    const data = await res.json();
+    if(data.success){
+      document.getElementById('modalForm').style.display    = 'none';
+      document.getElementById('modalSuccess').style.display = 'block';
+    } else {
+      errorBox.textContent = data.message || 'Something went wrong. Please try again.';
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Book Free Consultation';
+    }
+  } catch(err) {
+    errorBox.textContent = 'Connection error. Please email us at info@figment.global';
+    errorBox.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Book Free Consultation';
+  }
 });
 
 // Scroll reveals
