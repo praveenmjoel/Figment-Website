@@ -697,7 +697,7 @@ footer{
     <a href="ielts.html">IELTS</a>
     <a href="gre.html">GRE</a>
     <a href="admissions.html">Admissions</a>
-    <a href="contact.html" class="nav-cta">Get Started</a>
+    <a href="#" class="nav-cta" id="navGetStarted">Get Started</a>
   </div>
 </nav>
 
@@ -1167,6 +1167,7 @@ function openModal(){overlay.classList.add('active');document.body.style.overflo
 function closeModal(){overlay.classList.remove('active');document.body.style.overflow='';}
 
 openBtn.addEventListener('click', openModal);
+document.getElementById('navGetStarted').addEventListener('click', e => { e.preventDefault(); openModal(); });
 closeBtn.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
