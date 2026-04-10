@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>figment — GMAT Coaching in Madurai</title>
+<link rel="icon" type="image/png" href="/Favicon_Figment.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;--charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;--muted-ivory:rgba(244,241,236,0.55);}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo{text-decoration:none;}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 20% 70%,#0B2C4A 0%,#000 60%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(6rem,15vw,12rem);line-height:0.88;color:var(--ivory);letter-spacing:-0.02em;display:block;opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:var(--muted-ivory);max-width:520px;line-height:1.7;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1.05;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* PROGRAM HIGHLIGHT */
+.program-highlight{background:var(--charcoal);}
+.highlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
+.big-stat{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4rem,10vw,8rem);color:var(--gold);line-height:0.9;}
+.big-stat-label{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--grey);font-family:'DM Sans',sans-serif;margin-top:0.5rem;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(244,241,236,0.08);}
+.s-val{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--ivory);}
+.s-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-top:0.3rem;}
+.feature-list{list-style:none;margin-top:2rem;}
+.feature-list li{padding:1.2rem 0;border-bottom:1px solid rgba(244,241,236,0.06);display:flex;gap:1rem;align-items:flex-start;}
+.feature-list li:first-child{border-top:1px solid rgba(244,241,236,0.06);}
+.feat-num{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);min-width:1.5rem;}
+.feat-title{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;margin-bottom:0.3rem;}
+.feat-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+
+/* MODULES STRIP */
+.modules-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,241,236,0.08);margin-top:3rem;}
+.module-card{background:transparent;padding:2.5rem 2rem;}
+.module-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.4;line-height:1;margin-bottom:0.5rem;}
+.module-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ivory);font-weight:700;margin-bottom:0.8rem;}
+.module-meta{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;}
+.module-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+
+/* BATCH CARD */
+.batch-section{background:var(--black);}
+.batch-card{border:1px solid rgba(244,241,236,0.1);padding:3.5rem;margin-top:3rem;position:relative;overflow:hidden;}
+.batch-card::before{content:'GMAT';position:absolute;right:-1rem;top:-2rem;font-family:'Playfair Display',serif;font-weight:900;font-size:8rem;color:rgba(198,167,94,0.04);line-height:1;pointer-events:none;}
+.card-badge{display:inline-block;padding:0.3rem 1rem;background:var(--navy);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:2rem;}
+.card-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.card-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--grey);margin-bottom:2rem;}
+.card-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin:2rem 0;}
+.cg-item{text-align:center;padding:1.5rem;background:rgba(244,241,236,0.03);}
+.cg-val{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);}
+.cg-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;margin-top:0.3rem;}
+.card-features{list-style:none;margin:2rem 0;}
+.card-features li{font-size:0.85rem;color:var(--muted-ivory);padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(244,241,236,0.05);font-family:'DM Sans',sans-serif;font-weight:300;position:relative;}
+.card-features li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.price-row{display:flex;align-items:flex-end;gap:2rem;justify-content:space-between;flex-wrap:wrap;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(244,241,236,0.08);}
+.price-big{font-family:'Playfair Display',serif;font-size:3rem;color:var(--ivory);}
+.price-note{font-size:0.72rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-style:italic;}
+.btn-gold{display:inline-block;padding:1rem 2.8rem;background:var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;border:none;cursor:pointer;}
+.btn-gold:hover{background:var(--gold-light);}
+
+/* SCHEDULE */
+.schedule-section{background:var(--charcoal);}
+.schedule-table{width:100%;border-collapse:collapse;margin-top:2.5rem;}
+.schedule-table th{padding:1rem 1.5rem;text-align:left;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.12);}
+.schedule-table td{padding:1rem 1.5rem;font-size:0.85rem;color:var(--muted-ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.05);}
+.schedule-table td:first-child{color:var(--ivory);font-weight:400;}
+.badge-open{display:inline-block;padding:0.2rem 0.6rem;background:rgba(198,167,94,0.15);color:var(--gold);font-size:0.6rem;letter-spacing:0.2em;font-family:'DM Sans',sans-serif;}
+
+/* WHY */
+.why-section{background:var(--black);}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.why-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,7vw,5.5rem);line-height:0.92;color:var(--ivory);}
+.why-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.why-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);line-height:1.9;margin-top:1.5rem;}
+.why-points{list-style:none;}
+.why-points li{padding:1rem 0;border-bottom:1px solid rgba(244,241,236,0.08);font-size:0.88rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;padding-left:1.2rem;position:relative;}
+.why-points li::before{content:'◆';position:absolute;left:0;font-size:0.4rem;color:var(--gold);top:1.1rem;}
+.why-points li strong{color:var(--ivory);font-weight:400;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}.highlight-grid,.why-inner{grid-template-columns:1fr;gap:2.5rem;}.card-grid{grid-template-columns:1fr;}.stats-row{grid-template-columns:1fr 1fr;}.modules-grid{grid-template-columns:1fr;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html">IELTS</a>
+    <a href="gre.html">GRE</a>
+    <a href="gmat.html" class="active">GMAT</a>
+    <a href="sat.html">SAT</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">GMAT Focus Edition — MBA Prep</span>
+  <div class="hero-word">
+    Master the<br><em>GMAT</em>
+  </div>
+  <p class="hero-desc">Structured coaching for the GMAT Focus Edition. Expert-led training across Quantitative Reasoning, Verbal Reasoning, and Data Insights — built for students who are serious about a top-ranked MBA.</p>
+</section>
+
+<!-- PROGRAM HIGHLIGHT -->
+<section class="program-highlight">
+  <div class="highlight-grid">
+    <div class="reveal">
+      <span class="section-label">Why Choose figment</span>
+      <div class="big-stat">700+</div>
+      <div class="big-stat-label">Target score range</div>
+    </div>
+    <div class="reveal">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);font-size:1.1rem;line-height:1.9;margin-bottom:2rem;">The GMAT is not a knowledge test — it is a thinking test. We train you to think the way the exam demands, not just practise questions in volume.</p>
+      <ul class="feature-list">
+        <li><span class="feat-num">1</span><div><div class="feat-title">Focus Edition Expertise</div><div class="feat-desc">Fully updated curriculum for the GMAT Focus Edition — Quant, Verbal, and Data Insights</div></div></li>
+        <li><span class="feat-num">2</span><div><div class="feat-title">Strategy-First Approach</div><div class="feat-desc">Every module teaches you why the correct answer is correct — not just what it is</div></div></li>
+        <li><span class="feat-num">3</span><div><div class="feat-title">Official Materials</div><div class="feat-desc">Guided practice with GMAT Official Guide and GMAT Official Practice exams</div></div></li>
+        <li><span class="feat-num">4</span><div><div class="feat-title">MBA Admissions Context</div><div class="feat-desc">Understand how your score fits your target school's class profile — not just the number</div></div></li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:4rem;">
+    <div class="stats-row">
+      <div class="reveal"><div class="s-val">3</div><div class="s-lbl">GMAT Sections</div></div>
+      <div class="reveal"><div class="s-val">8</div><div class="s-lbl">Full-Length Mocks</div></div>
+      <div class="reveal"><div class="s-val">805</div><div class="s-lbl">Maximum Score</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="modules-section">
+  <div class="reveal">
+    <span class="section-label">The GMAT Focus Edition</span>
+    <div class="section-heading">Three sections.<br><em>One strategy.</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--grey);line-height:1.9;max-width:620px;">The GMAT Focus Edition replaced the classic GMAT in 2023. Our curriculum is built specifically around the new structure — with dedicated strategies for each section.</p>
+  </div>
+  <div class="modules-grid reveal">
+    <div class="module-card">
+      <div class="module-num">01</div>
+      <div class="module-title">Quantitative Reasoning</div>
+      <div class="module-meta">21 Questions · 45 Minutes</div>
+      <div class="module-desc">Problem Solving only. Tests arithmetic, algebra, and higher-order reasoning. We cover Number Properties, Algebra, Word Problems, and Advanced Quant strategies with a focus on accuracy under time pressure.</div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">02</div>
+      <div class="module-title">Verbal Reasoning</div>
+      <div class="module-meta">23 Questions · 45 Minutes</div>
+      <div class="module-desc">Critical Reasoning and Reading Comprehension. We train logical argument analysis, inference identification, and structured reading — skills that improve both your score and your MBA application essays.</div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">03</div>
+      <div class="module-title">Data Insights</div>
+      <div class="module-meta">20 Questions · 45 Minutes</div>
+      <div class="module-desc">The newest section: Data Sufficiency, Multi-Source Reasoning, Table Analysis, Graphics Interpretation, and Two-Part Analysis. We build the structured thinking this section demands from the ground up.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BATCH PROGRAM -->
+<section class="batch-section">
+  <div class="reveal">
+    <span class="section-label">The Program</span>
+    <div class="section-heading">One focused <em>batch.</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="batch-card reveal">
+    <span class="card-badge">Batch Program</span>
+    <div class="card-title">GMAT Focus Mastery Batch</div>
+    <div class="card-subtitle">Small group · Strategy-first · Expert instruction</div>
+    <div class="card-grid">
+      <div class="cg-item"><div class="cg-val">40</div><div class="cg-lbl">Classes</div></div>
+      <div class="cg-item"><div class="cg-val">60h</div><div class="cg-lbl">Total Duration</div></div>
+      <div class="cg-item"><div class="cg-val">8</div><div class="cg-lbl">Full-Length Mocks</div></div>
+    </div>
+    <ul class="card-features">
+      <li>Complete coverage: Quantitative Reasoning, Verbal Reasoning, and Data Insights</li>
+      <li>8 full-length GMAT Focus practice tests with performance analysis</li>
+      <li>Official GMAT prep materials included — no additional purchases</li>
+      <li>Score tracking and personalised improvement plans</li>
+      <li>Separate Data Insights module — the section most students underestimate</li>
+      <li>Recordings available for sessions missed due to work commitments</li>
+      <li>Limited to 15 students per batch for dedicated feedback</li>
+    </ul>
+    <div class="price-row">
+      <div>
+        <div class="price-big">₹ 48,000</div>
+        <div class="price-note">Includes all materials · Early enrolment discount available</div>
+      </div>
+      <a href="contact.html" class="btn-gold">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="reveal">
+    <span class="section-label">Batch Schedule</span>
+    <div class="section-heading">Evening batches<br>built for <em>professionals.</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Batch</th><th>Start Date</th><th>End Date</th><th>Timing (IST)</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Evening Batch</td><td>15 May 2026</td><td>30 Jul 2026</td><td>07:00 – 08:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Late Evening Batch</td><td>01 Jun 2026</td><td>15 Aug 2026</td><td>09:00 – 10:30 pm</td><td><span class="badge-open">Open</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:2rem;font-size:1rem;">Weekend batches available on request. Contact us to register your preferred timing.</p>
+</section>
+
+<!-- WHY GMAT WITH FIGMENT -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="reveal">
+      <span class="section-label">Why GMAT with figment</span>
+      <div class="why-word">Score the<br>MBA you<br><em>deserve.</em></div>
+      <p class="why-body">A 700+ GMAT score does not come from doing more questions. It comes from understanding how the exam thinks — and we build that understanding systematically.</p>
+    </div>
+    <div class="reveal">
+      <ul class="why-points">
+        <li><strong>Focus Edition curriculum</strong> — built from scratch for the new three-section exam structure</li>
+        <li><strong>Data Insights deep-dive</strong> — the section that separates 650 scorers from 700+ scorers</li>
+        <li><strong>8 full-length mocks</strong> — you will have already done the exam before exam day</li>
+        <li><strong>Evening and late-night batches</strong> — designed around working professionals' schedules</li>
+        <li><strong>MBA admissions guidance</strong> — understand how your target schools evaluate GMAT scores</li>
+        <li><strong>Official materials included</strong> — everything you need is in the programme, nothing extra to buy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-word">Your MBA<br><em>starts here.</em></div>
+  <div class="cta-right">
+    <p class="cta-text">Evening batches open now. Speak to a counsellor and find out which batch fits your MBA timeline.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+    <div style="margin-top:1.2rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:#C6A75E;font-family:'DM Sans',sans-serif;margin-bottom:0.4rem;">Contact</div>
+      <p style="font-size:0.82rem;color:#8A8F96;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;">
+        <a href="mailto:info@figment.global" style="color:#8A8F96;text-decoration:none;">info@figment.global</a><br>
+        <a href="tel:07448755866" style="color:#8A8F96;text-decoration:none;">07448755866</a><br>
+        23, First Floor, 80 Feet Rd,<br>New LIG Colony, Anna Nagar,<br>Madurai, Tamil Nadu 625020
+      </p>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="gmat.html">GMAT Coaching</a>
+    <a href="sat.html">SAT Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>

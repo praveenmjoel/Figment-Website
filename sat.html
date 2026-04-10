@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>figment — SAT Coaching in Madurai</title>
+<meta name="description" content="SAT coaching in Madurai by figment. Digital SAT preparation — Reading & Writing and Math — for students targeting US university admissions. Expert-led batches and private coaching.">
+<link rel="icon" type="image/png" href="/Favicon_Figment.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;--charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;--muted-ivory:rgba(244,241,236,0.55);}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo{text-decoration:none;}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+/* HERO */
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 75% 60%,#0B2C4A 0%,#000 65%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(6rem,15vw,12rem);line-height:0.88;color:var(--ivory);letter-spacing:-0.02em;display:block;opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.5rem);color:var(--muted-ivory);max-width:520px;line-height:1.7;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1.05;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* PROGRAM CARDS */
+.programs-section{background:var(--charcoal);}
+.programs-header{margin-bottom:4rem;}
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.06);}
+.program-card{background:var(--charcoal);padding:3rem 2.5rem;position:relative;}
+.card-badge{display:inline-block;padding:0.3rem 1rem;background:var(--navy);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:2rem;}
+.card-badge.featured{background:var(--gold);color:var(--black);}
+.card-title{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.card-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--grey);margin-bottom:1.5rem;}
+.card-stats{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;gap:0.2rem;}
+.stat-val{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);}
+.stat-lbl{font-size:0.62rem;letter-spacing:0.2em;color:var(--grey);text-transform:uppercase;font-family:'DM Sans',sans-serif;}
+.card-features{list-style:none;margin-bottom:2.5rem;}
+.card-features li{font-size:0.85rem;color:var(--muted-ivory);padding:0.5rem 0;border-bottom:1px solid rgba(244,241,236,0.06);font-family:'DM Sans',sans-serif;font-weight:300;padding-left:1rem;position:relative;}
+.card-features li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.card-price{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--ivory);}
+.card-price span{font-size:0.8rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;margin-left:0.3rem;}
+.card-cta{display:inline-block;margin-top:1.5rem;padding:0.8rem 2rem;border:1px solid var(--gold);color:var(--gold);font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;transition:background 0.3s,color 0.3s;}
+.card-cta:hover{background:var(--gold);color:var(--black);}
+.card-cta.primary{background:var(--gold);color:var(--black);}
+.card-cta.primary:hover{background:var(--gold-light);}
+
+/* COMPARISON */
+.comparison-section{background:var(--black);}
+.compare-table{width:100%;border-collapse:collapse;margin-top:3rem;}
+.compare-table th{padding:1.2rem 1.5rem;text-align:left;font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;font-weight:400;}
+.compare-table th:not(:first-child){background:var(--navy);text-align:center;}
+.compare-table th:nth-child(3){background:var(--gold);color:var(--black);}
+.compare-table td{padding:1.1rem 1.5rem;border-top:1px solid rgba(244,241,236,0.06);font-size:0.85rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;}
+.compare-table td:not(:first-child){text-align:center;color:var(--ivory);}
+.compare-table td:first-child{color:var(--grey);font-size:0.78rem;}
+.compare-table tr:hover td{background:rgba(244,241,236,0.02);}
+
+/* MODULES */
+.modules-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.08);margin-top:3rem;}
+.module-card{background:transparent;padding:3rem 2.5rem;}
+.module-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.4;line-height:1;margin-bottom:0.5rem;}
+.module-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ivory);font-weight:700;margin-bottom:0.8rem;}
+.module-meta{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;}
+.module-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+.module-topics{list-style:none;margin-top:1.2rem;}
+.module-topics li{font-size:0.78rem;color:rgba(244,241,236,0.5);font-family:'DM Sans',sans-serif;padding:0.3rem 0;padding-left:1rem;position:relative;}
+.module-topics li::before{content:'–';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+
+/* SCHEDULE */
+.schedule-section{background:var(--charcoal);}
+.tab-nav{display:flex;gap:0;margin-bottom:3rem;border-bottom:1px solid rgba(244,241,236,0.1);}
+.tab-btn{padding:0.8rem 1.8rem;background:none;border:none;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--grey);cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.3s;position:relative;}
+.tab-btn.active{color:var(--gold);}
+.tab-btn.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--gold);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.schedule-table{width:100%;border-collapse:collapse;}
+.schedule-table th{padding:1rem 1.5rem;text-align:left;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.12);}
+.schedule-table td{padding:1rem 1.5rem;font-size:0.85rem;color:var(--muted-ivory);font-family:'DM Sans',sans-serif;border-bottom:1px solid rgba(244,241,236,0.05);}
+.schedule-table td:first-child{color:var(--ivory);font-weight:400;}
+.badge-open{display:inline-block;padding:0.2rem 0.6rem;background:rgba(198,167,94,0.15);color:var(--gold);font-size:0.6rem;letter-spacing:0.2em;font-family:'DM Sans',sans-serif;}
+
+/* CRASH COURSE */
+.crash-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.crash-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.crash-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3rem,7vw,5.5rem);line-height:0.92;color:var(--ivory);}
+.crash-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;}
+.crash-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);line-height:1.9;margin-top:1.5rem;margin-bottom:2rem;}
+.crash-card{border:1px solid rgba(198,167,94,0.2);padding:2.5rem;}
+.crash-badge{display:inline-block;padding:0.3rem 1rem;background:rgba(198,167,94,0.12);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:1.5rem;}
+.crash-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.crash-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);margin-bottom:1.5rem;}
+.crash-list{list-style:none;margin-bottom:2rem;}
+.crash-list li{font-size:0.85rem;color:var(--muted-ivory);padding:0.5rem 0;border-bottom:1px solid rgba(244,241,236,0.06);font-family:'DM Sans',sans-serif;font-weight:300;padding-left:1rem;position:relative;}
+.crash-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.crash-price{font-family:'Playfair Display',serif;font-size:2rem;color:var(--ivory);margin-bottom:0.3rem;}
+.crash-note{font-size:0.72rem;color:var(--grey);font-style:italic;font-family:'DM Sans',sans-serif;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}.cards-grid{grid-template-columns:1fr;}.crash-inner{grid-template-columns:1fr;gap:2.5rem;}.modules-grid{grid-template-columns:1fr;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html">IELTS</a>
+    <a href="gre.html">GRE</a>
+    <a href="gmat.html">GMAT</a>
+    <a href="sat.html" class="active">SAT</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">Digital SAT — US College Admissions</span>
+  <div class="hero-word">
+    Crack the<br><em>SAT</em>
+  </div>
+  <p class="hero-desc">Expert SAT coaching for the Digital SAT era. From Reading & Writing to Math — we build the skills, strategy, and confidence to hit your target score and open doors to top US universities.</p>
+</section>
+
+<!-- PROGRAM CARDS -->
+<section class="programs-section">
+  <div class="programs-header reveal">
+    <span class="section-label">Choose Your Program</span>
+    <div class="section-heading">Two ways to<br>reach <em>1500+</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);font-size:1.1rem;line-height:1.9;max-width:600px;">Whether you prefer the energy of a small batch or the focus of personalised coaching, figment has a path built for your timeline and your goal.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="program-card reveal">
+      <span class="card-badge">Batch Program</span>
+      <div class="card-title">SAT Batch Coaching</div>
+      <div class="card-subtitle">Small group · Structured curriculum · Peer learning</div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">35</div><div class="stat-lbl">Classes</div></div>
+        <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">Full Tests</div></div>
+        <div class="stat"><div class="stat-val">12</div><div class="stat-lbl">Max Students</div></div>
+      </div>
+      <ul class="card-features">
+        <li>Complete Digital SAT curriculum — Reading &amp; Writing and Math</li>
+        <li>6 full-length Digital SAT practice tests with score analysis</li>
+        <li>Section-wise timed drills and adaptive practice</li>
+        <li>Vocabulary and grammar fundamentals for the new format</li>
+        <li>Peer problem-solving sessions and weekly review classes</li>
+        <li>Performance tracker with personalised weak-area focus</li>
+      </ul>
+      <div class="card-price">₹ 35,000 <span>· all materials included</span></div>
+      <a href="contact.html" class="card-cta">Enquire Now</a>
+    </div>
+    <div class="program-card reveal">
+      <span class="card-badge featured">1 : 1 Coaching</span>
+      <div class="card-title">SAT Private Intensive</div>
+      <div class="card-subtitle">Personalised · Flexible schedule · Fastest results</div>
+      <div class="card-stats">
+        <div class="stat"><div class="stat-val">20</div><div class="stat-lbl">Sessions</div></div>
+        <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Full Tests</div></div>
+        <div class="stat"><div class="stat-val">1:1</div><div class="stat-lbl">Instruction</div></div>
+      </div>
+      <ul class="card-features">
+        <li>Diagnostic test on day one — build your plan from your baseline</li>
+        <li>Customised schedule: mornings, evenings, or weekends</li>
+        <li>Deep dives into your exact weak areas — nothing wasted</li>
+        <li>College list guidance and score target setting</li>
+        <li>Essay and application strategy alongside test prep</li>
+        <li>Direct access to your counsellor between sessions</li>
+      </ul>
+      <div class="card-price">₹ 55,000 <span>· custom plan</span></div>
+      <a href="contact.html" class="card-cta primary">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison-section">
+  <div class="reveal">
+    <span class="section-label">Compare Programs</span>
+    <div class="section-heading">Batch vs<br><em>Private Coaching</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Batch Coaching</th>
+          <th>Private 1:1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Class Format</td><td>Small group (max 12)</td><td>One-on-one</td></tr>
+        <tr><td>Total Sessions</td><td>35 classes</td><td>20 sessions</td></tr>
+        <tr><td>Full-Length Practice Tests</td><td>6 tests</td><td>4 tests</td></tr>
+        <tr><td>Schedule Flexibility</td><td>Fixed batches</td><td>Fully flexible</td></tr>
+        <tr><td>Personalised Curriculum</td><td>Structured plan</td><td>Built around your baseline</td></tr>
+        <tr><td>College Application Guidance</td><td>Group sessions</td><td>Dedicated support</td></tr>
+        <tr><td>Materials Included</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Program Fee</td><td>₹ 35,000</td><td>₹ 55,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="modules-section">
+  <div class="reveal">
+    <span class="section-label">The Digital SAT</span>
+    <div class="section-heading">Two sections.<br><em>One score.</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(244,241,236,0.6);line-height:1.9;max-width:620px;">The Digital SAT replaced the paper SAT in 2024. It is shorter, adaptive, and computer-based — and requires a very different preparation strategy. Our curriculum is built specifically for this new format.</p>
+  </div>
+  <div class="modules-grid reveal">
+    <div class="module-card">
+      <div class="module-num">01</div>
+      <div class="module-title">Reading and Writing</div>
+      <div class="module-meta">54 Questions · 64 Minutes · 2 Modules</div>
+      <div class="module-desc">Evidence-based reading, grammar and usage, and vocabulary-in-context. The Digital SAT's adaptive engine means your second module adjusts to your first — we train you to perform consistently across all difficulty levels.</div>
+      <ul class="module-topics">
+        <li>Craft and Structure — vocabulary, text structure, cross-text connections</li>
+        <li>Information and Ideas — central ideas, inferences, command of evidence</li>
+        <li>Standard English Conventions — boundaries, form, sense, agreement</li>
+        <li>Expression of Ideas — transitions, rhetorical synthesis</li>
+      </ul>
+    </div>
+    <div class="module-card">
+      <div class="module-num">02</div>
+      <div class="module-title">Math</div>
+      <div class="module-meta">44 Questions · 70 Minutes · 2 Modules</div>
+      <div class="module-desc">Algebra, Advanced Math, Problem Solving, Geometry, and Trigonometry. The Digital SAT allows a calculator throughout — but speed and accuracy still matter. We build systematic problem-solving habits, not just formula recall.</div>
+      <ul class="module-topics">
+        <li>Algebra — linear equations, inequalities, systems of equations</li>
+        <li>Advanced Math — quadratics, polynomials, exponential functions</li>
+        <li>Problem Solving &amp; Data Analysis — ratios, rates, statistics, probability</li>
+        <li>Geometry &amp; Trigonometry — area, volume, circles, right triangles</li>
+      </ul>
+    </div>
+  </div>
+  <div class="reveal" style="margin-top:3rem;padding:2rem;border:1px solid rgba(198,167,94,0.15);">
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:var(--grey);line-height:1.8;letter-spacing:0.05em;text-transform:uppercase;">Score range: 400 – 1600 &nbsp;·&nbsp; Reading & Writing: 200–800 &nbsp;·&nbsp; Math: 200–800 &nbsp;·&nbsp; Duration: 2 hrs 14 min &nbsp;·&nbsp; Format: Adaptive (Bluebook app)</p>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="reveal">
+    <span class="section-label">Batch Schedule</span>
+    <div class="section-heading">Find your<br><em>batch.</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="showTab('batch')">Batch Coaching</button>
+    <button class="tab-btn" onclick="showTab('private')">Private 1:1</button>
+  </div>
+  <div id="batch" class="tab-content active reveal" style="overflow-x:auto;">
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Batch</th><th>Start Date</th><th>End Date</th><th>Timing (IST)</th><th>Target Test Date</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Morning Batch</td><td>12 May 2026</td><td>20 Jul 2026</td><td>07:00 – 09:00 am</td><td>Aug 2026 SAT</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Afternoon Batch</td><td>01 Jun 2026</td><td>15 Aug 2026</td><td>03:00 – 05:00 pm</td><td>Oct 2026 SAT</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>Weekend Batch</td><td>16 May 2026</td><td>22 Aug 2026</td><td>Sat &amp; Sun, 10:00 am – 1:00 pm</td><td>Oct 2026 SAT</td><td><span class="badge-open">Open</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:1.5rem;font-size:1rem;">SAT is offered in August, October, November, and March. Contact us to align your batch with your target test date.</p>
+  </div>
+  <div id="private" class="tab-content reveal" style="overflow-x:auto;">
+    <table class="schedule-table">
+      <thead>
+        <tr><th>Program</th><th>Availability</th><th>Session Length</th><th>Commitment</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1:1 Private Intensive</td><td>Flexible — your schedule</td><td>90 min / session</td><td>20 sessions over 8–10 weeks</td><td><span class="badge-open">Open</span></td></tr>
+      </tbody>
+    </table>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:1.5rem;font-size:1rem;">Private sessions are available on weekdays and weekends. We will build a schedule around your school timetable or work commitments.</p>
+  </div>
+</section>
+
+<!-- CRASH COURSE -->
+<section class="crash-section">
+  <div class="crash-inner">
+    <div class="reveal">
+      <span class="section-label">Last-Mile Prep</span>
+      <div class="crash-word">The SAT<br><em>Crash</em><br>Course</div>
+      <p class="crash-body">Already scored 1200+ and need to push to 1400–1500? Our intensive crash course is designed for students who have the foundation and need the final push — fast.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:var(--grey);line-height:1.8;">Ideal for: students retaking the SAT · students with limited time before their test date · students targeting top US universities with score-sensitive admissions</p>
+    </div>
+    <div class="reveal">
+      <div class="crash-card">
+        <span class="crash-badge">Intensive Program</span>
+        <div class="crash-title">SAT Crash Course</div>
+        <div class="crash-subtitle">3 weeks · Targeted · Results-focused</div>
+        <ul class="crash-list">
+          <li>Diagnostic test + score analysis to identify your biggest gains</li>
+          <li>15 targeted sessions over 3 weeks — no filler, only your weak areas</li>
+          <li>2 full-length Digital SAT mocks with full debrief</li>
+          <li>Timed drills for both Reading &amp; Writing and Math</li>
+          <li>Test-day strategy and pacing — specific to your score target</li>
+          <li>WhatsApp support between sessions for doubts</li>
+        </ul>
+        <div class="crash-price">₹ 18,000</div>
+        <div class="crash-note">Available in batch (max 8) or private 1:1 format · Contact for private pricing</div>
+        <a href="contact.html" style="display:inline-block;margin-top:1.5rem;padding:0.8rem 2rem;background:var(--gold);color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;">Enquire Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-word">Your US<br><em>future starts<br>here.</em></div>
+  <div class="cta-right">
+    <p class="cta-text">Batches for the August and October SAT are now open. Speak to a counsellor about which program fits your school schedule and score goal.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+    <div style="margin-top:1.2rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:#C6A75E;font-family:'DM Sans',sans-serif;margin-bottom:0.4rem;">Contact</div>
+      <p style="font-size:0.82rem;color:#8A8F96;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;">
+        <a href="mailto:info@figment.global" style="color:#8A8F96;text-decoration:none;">info@figment.global</a><br>
+        <a href="tel:07448755866" style="color:#8A8F96;text-decoration:none;">07448755866</a><br>
+        23, First Floor, 80 Feet Rd,<br>New LIG Colony, Anna Nagar,<br>Madurai, Tamil Nadu 625020
+      </p>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="gmat.html">GMAT Coaching</a>
+    <a href="sat.html">SAT Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+function showTab(id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
