@@ -35,6 +35,25 @@ section{position:relative;padding:6rem 3rem;}
 .section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
 .divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
 
+/* AT A GLANCE */
+.glance-section{background:var(--navy);}
+.glance-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,241,236,0.08);margin-bottom:3rem;}
+.glance-stat{background:var(--navy);padding:3rem 2.5rem;text-align:center;}
+.glance-val{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--gold);font-weight:700;line-height:1;}
+.glance-lbl{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);font-family:'DM Sans',sans-serif;margin-top:0.6rem;}
+.glance-sub{font-size:0.78rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;margin-top:0.3rem;}
+.glance-note{border:1px solid rgba(198,167,94,0.2);padding:2rem 2.5rem;background:rgba(198,167,94,0.04);}
+.glance-note p{font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--muted-ivory);line-height:1.9;}
+
+/* WHY FIGMENT */
+.why-section{background:var(--black);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.06);margin-top:3rem;}
+.why-card{background:var(--black);padding:3rem 2.5rem;border-left:2px solid rgba(198,167,94,0.4);}
+.why-card:hover{border-left-color:var(--gold);}
+.why-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--ivory);font-weight:700;margin-bottom:1rem;}
+.why-body{font-size:0.85rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.8;}
+.why-tagline{margin-top:3rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--muted-ivory);text-align:center;line-height:1.8;max-width:700px;margin-left:auto;margin-right:auto;}
+
 /* PROGRAM CARDS */
 .programs-section{background:var(--charcoal);}
 .programs-header{margin-bottom:4rem;}
@@ -69,20 +88,60 @@ section{position:relative;padding:6rem 3rem;}
 .compare-table td:first-child{color:var(--grey);font-size:0.78rem;}
 .compare-table tr:hover td{background:rgba(244,241,236,0.02);}
 
-/* MODULES */
+/* HOW WE TEACH */
+.teach-section{background:var(--charcoal);}
+.teach-steps{margin-top:3rem;}
+.teach-step{display:grid;grid-template-columns:5rem 1fr;align-items:start;padding:2.5rem 0;border-bottom:1px solid rgba(244,241,236,0.06);}
+.teach-step:last-child{border-bottom:none;}
+.teach-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.45;line-height:1;font-weight:600;}
+.teach-title{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--ivory);font-weight:700;margin-bottom:0.7rem;}
+.teach-body{font-size:0.85rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.8;}
+
+/* MOCK TESTS */
+.mocks-section{background:var(--black);}
+.mocks-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(244,241,236,0.06);margin-top:3rem;}
+.mock-col{background:var(--black);padding:3rem 2.5rem;}
+.mock-col-title{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(198,167,94,0.25);}
+.mock-item{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid rgba(244,241,236,0.05);align-items:start;}
+.mock-item:last-child{border-bottom:none;}
+.mock-left{}
+.mock-label{font-family:'Playfair Display',serif;font-size:0.9rem;color:var(--gold);white-space:nowrap;}
+.mock-timing{font-size:0.65rem;color:var(--grey);font-family:'DM Sans',sans-serif;margin-top:0.2rem;letter-spacing:0.05em;white-space:nowrap;}
+.mock-desc{font-size:0.82rem;color:var(--muted-ivory);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+.track-item{padding:1.2rem 0;border-bottom:1px solid rgba(244,241,236,0.05);}
+.track-item:last-child{border-bottom:none;}
+.track-title{font-size:0.88rem;color:var(--ivory);font-family:'DM Sans',sans-serif;font-weight:500;margin-bottom:0.3rem;}
+.track-q{font-size:0.78rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;font-style:italic;}
+
+/* CURRICULUM / MODULES */
 .modules-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
 .modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.08);margin-top:3rem;}
 .module-card{background:transparent;padding:3rem 2.5rem;}
 .module-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.4;line-height:1;margin-bottom:0.5rem;}
 .module-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--ivory);font-weight:700;margin-bottom:0.8rem;}
 .module-meta{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:0.8rem;}
-.module-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
-.module-topics{list-style:none;margin-top:1.2rem;}
-.module-topics li{font-size:0.78rem;color:rgba(244,241,236,0.5);font-family:'DM Sans',sans-serif;padding:0.3rem 0;padding-left:1rem;position:relative;}
-.module-topics li::before{content:'–';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+.module-desc{font-size:0.82rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;margin-bottom:1.5rem;}
+.domain-list{list-style:none;}
+.domain-item{padding:0.9rem 0;border-bottom:1px solid rgba(244,241,236,0.06);}
+.domain-item:last-child{border-bottom:none;}
+.domain-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.3rem;}
+.domain-name{font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--ivory);font-weight:500;}
+.domain-pct{font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--gold);}
+.domain-topics{font-size:0.75rem;color:rgba(244,241,236,0.4);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.5;}
+
+/* SAT PREP JOURNEY */
+.journey-section{background:var(--charcoal);}
+.journey-phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(244,241,236,0.06);margin-top:3rem;}
+.phase-box{background:var(--charcoal);padding:2.5rem 2rem;position:relative;}
+.phase-label{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-bottom:1rem;}
+.phase-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ivory);font-weight:700;margin-bottom:0.5rem;}
+.phase-weeks{font-size:0.72rem;color:var(--grey);font-family:'DM Sans',sans-serif;margin-bottom:1.2rem;}
+.phase-mock{font-size:0.68rem;letter-spacing:0.1em;color:var(--gold);font-family:'DM Sans',sans-serif;background:rgba(198,167,94,0.1);padding:0.3rem 0.8rem;display:inline-block;}
+.journey-note{margin-top:3rem;padding:2rem 2.5rem;border:1px solid rgba(198,167,94,0.15);background:rgba(198,167,94,0.04);}
+.journey-note p{font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--muted-ivory);line-height:1.9;}
 
 /* SCHEDULE */
-.schedule-section{background:var(--charcoal);}
+.schedule-section{background:var(--black);}
 .tab-nav{display:flex;gap:0;margin-bottom:3rem;border-bottom:1px solid rgba(244,241,236,0.1);}
 .tab-btn{padding:0.8rem 1.8rem;background:none;border:none;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--grey);cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.3s;position:relative;}
 .tab-btn.active{color:var(--gold);}
@@ -132,8 +191,23 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
-@media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}.cards-grid{grid-template-columns:1fr;}.crash-inner{grid-template-columns:1fr;gap:2.5rem;}.modules-grid{grid-template-columns:1fr;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
-@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  section{padding:4rem 1.5rem;}
+  .hero{padding:8rem 1.5rem 4rem;}
+  .cards-grid,.why-grid,.mocks-grid{grid-template-columns:1fr;}
+  .crash-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .modules-grid{grid-template-columns:1fr;}
+  .journey-phases{grid-template-columns:repeat(2,1fr);}
+  .glance-stats{grid-template-columns:1fr;}
+  .teach-step{grid-template-columns:3.5rem 1fr;}
+  footer{grid-template-columns:1fr;}
+  .cta-banner{flex-direction:column;}
+}
+@media(max-width:600px){
+  .nav-links a:not(.nav-cta){display:none;}
+  .journey-phases{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -156,7 +230,64 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
   <div class="hero-word">
     Crack the<br><em>SAT</em>
   </div>
-  <p class="hero-desc">Expert SAT coaching for the Digital SAT era. From Reading & Writing to Math — we build the skills, strategy, and confidence to hit your target score and open doors to top US universities.</p>
+  <p class="hero-desc">Expert SAT coaching for the Digital SAT era. From Reading &amp; Writing to Math — we build the skills, strategy, and confidence to hit your target score and open doors to top US universities.</p>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="glance-section">
+  <div class="reveal">
+    <span class="section-label">The Digital SAT</span>
+    <div class="section-heading">At a<br><em>Glance</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="glance-stats reveal">
+    <div class="glance-stat">
+      <div class="glance-val">1600</div>
+      <div class="glance-lbl">Maximum Score</div>
+      <div class="glance-sub">800 Reading &amp; Writing + 800 Math</div>
+    </div>
+    <div class="glance-stat">
+      <div class="glance-val">2h 14m</div>
+      <div class="glance-lbl">Test Duration</div>
+      <div class="glance-sub">Fully adaptive two-module format</div>
+    </div>
+    <div class="glance-stat">
+      <div class="glance-val">2</div>
+      <div class="glance-lbl">Sections</div>
+      <div class="glance-sub">Reading &amp; Writing | Mathematics</div>
+    </div>
+  </div>
+  <div class="glance-note reveal">
+    <p><strong style="color:var(--gold);font-weight:500;">Why adaptive matters:</strong> The Digital SAT adjusts the difficulty of your second module based on your first-module performance. Students who master the foundational patterns earn access to harder questions — and a higher score ceiling. At Figment, our prep is built around this logic.</p>
+  </div>
+</section>
+
+<!-- WHY FIGMENT -->
+<section class="why-section">
+  <div class="reveal">
+    <span class="section-label">Why Figment</span>
+    <div class="section-heading">Built for the<br><em>Digital SAT</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-title">Expert Instruction</div>
+      <div class="why-body">Faculty trained on the Digital SAT's adaptive format, Bluebook interface, and scoring patterns. No generic tutors — only SAT specialists.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-title">Data-Driven Approach</div>
+      <div class="why-body">Detailed diagnostic after every mock test. We identify your weak sub-domains and prioritise them — no time spent on concepts you already know.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-title">US College Context</div>
+      <div class="why-body">We understand your target universities. We help you set a realistic score goal based on your shortlist and factor SAT into your overall profile strategy.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-title">Adaptive Practice Sets</div>
+      <div class="why-body">Practice with module sets that mirror the real test's difficulty escalation — same adaptive logic, same timing pressure, same question patterns.</div>
+    </div>
+  </div>
+  <p class="why-tagline reveal">Figment is Madurai's dedicated study-abroad brand — SAT prep here is always in the context of getting you into the right university.</p>
 </section>
 
 <!-- PROGRAM CARDS -->
@@ -173,17 +304,17 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
       <div class="card-title">SAT Batch Coaching</div>
       <div class="card-subtitle">Small group · Structured curriculum · Peer learning</div>
       <div class="card-stats">
-        <div class="stat"><div class="stat-val">35</div><div class="stat-lbl">Classes</div></div>
-        <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">Full Tests</div></div>
-        <div class="stat"><div class="stat-val">12</div><div class="stat-lbl">Max Students</div></div>
+        <div class="stat"><div class="stat-val">30</div><div class="stat-lbl">Sessions</div></div>
+        <div class="stat"><div class="stat-val">60</div><div class="stat-lbl">Hours</div></div>
+        <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Full Tests</div></div>
       </div>
       <ul class="card-features">
-        <li>Complete Digital SAT curriculum — Reading &amp; Writing and Math</li>
-        <li>6 full-length Digital SAT practice tests with score analysis</li>
-        <li>Section-wise timed drills and adaptive practice</li>
-        <li>Vocabulary and grammar fundamentals for the new format</li>
-        <li>Peer problem-solving sessions and weekly review classes</li>
-        <li>Performance tracker with personalised weak-area focus</li>
+        <li>Structured classroom-style learning — small group, max 12 students</li>
+        <li>Peer cohort — learn from each other's questions and approaches</li>
+        <li>4 full-length Digital SAT mock tests with in-depth score analysis</li>
+        <li>Weekly performance reports with sub-domain accuracy tracking</li>
+        <li>Dedicated doubt-clearing sessions each week</li>
+        <li>Study material included — no extra cost</li>
       </ul>
       <div class="card-price">₹ 55,000 <span>· all materials included</span></div>
       <a href="contact.html" class="card-cta">Enquire Now</a>
@@ -193,17 +324,17 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
       <div class="card-title">SAT Private Intensive</div>
       <div class="card-subtitle">Personalised · Flexible schedule · Fastest results</div>
       <div class="card-stats">
-        <div class="stat"><div class="stat-val">20</div><div class="stat-lbl">Sessions</div></div>
-        <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Full Tests</div></div>
-        <div class="stat"><div class="stat-val">1:1</div><div class="stat-lbl">Instruction</div></div>
+        <div class="stat"><div class="stat-val">15</div><div class="stat-lbl">Sessions</div></div>
+        <div class="stat"><div class="stat-val">30</div><div class="stat-lbl">Hours</div></div>
+        <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Full Tests</div></div>
       </div>
       <ul class="card-features">
-        <li>Diagnostic test on day one — build your plan from your baseline</li>
-        <li>Customised schedule: mornings, evenings, or weekends</li>
-        <li>Deep dives into your exact weak areas — nothing wasted</li>
-        <li>College list guidance and score target setting</li>
-        <li>Essay and application strategy alongside test prep</li>
-        <li>Direct access to your counsellor between sessions</li>
+        <li>Fully personalised to your gaps — built from your diagnostic baseline</li>
+        <li>Flexible scheduling — your calendar, weekdays or weekends</li>
+        <li>3 full-length Digital SAT mocks with in-depth post-test debriefs</li>
+        <li>Direct faculty access throughout the program</li>
+        <li>College list guidance and score target setting alongside test prep</li>
+        <li>Study material included — no extra cost</li>
       </ul>
       <div class="card-price">₹ 85,000 <span>· custom plan</span></div>
       <a href="contact.html" class="card-cta primary">Book Consultation</a>
@@ -229,8 +360,10 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
       </thead>
       <tbody>
         <tr><td>Class Format</td><td>Small group (max 12)</td><td>One-on-one</td></tr>
-        <tr><td>Total Sessions</td><td>35 classes</td><td>20 sessions</td></tr>
-        <tr><td>Full-Length Practice Tests</td><td>6 tests</td><td>4 tests</td></tr>
+        <tr><td>Total Sessions</td><td>30 sessions</td><td>15 sessions</td></tr>
+        <tr><td>Total Hours</td><td>60 hours</td><td>30 hours</td></tr>
+        <tr><td>Duration</td><td>3–4 Months</td><td>6–8 Weeks</td></tr>
+        <tr><td>Full-Length Practice Tests</td><td>4 tests</td><td>3 tests</td></tr>
         <tr><td>Schedule Flexibility</td><td>Fixed batches</td><td>Fully flexible</td></tr>
         <tr><td>Personalised Curriculum</td><td>Structured plan</td><td>Built around your baseline</td></tr>
         <tr><td>College Application Guidance</td><td>Group sessions</td><td>Dedicated support</td></tr>
@@ -241,42 +374,232 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
   </div>
 </section>
 
-<!-- MODULES -->
+<!-- HOW WE TEACH -->
+<section class="teach-section">
+  <div class="reveal">
+    <span class="section-label">Our Method</span>
+    <div class="section-heading">How we<br><em>teach</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="teach-steps reveal">
+    <div class="teach-step">
+      <div class="teach-num">01</div>
+      <div>
+        <div class="teach-title">Diagnostic</div>
+        <div class="teach-body">Full diagnostic test on Day 1. We map your starting score, identify your strongest and weakest sub-domains, and build your personalised prep plan from there — nothing generic.</div>
+      </div>
+    </div>
+    <div class="teach-step">
+      <div class="teach-num">02</div>
+      <div>
+        <div class="teach-title">Concept Mastery</div>
+        <div class="teach-body">Systematic coverage of every SAT topic — Reading &amp; Writing and Math. Heavy focus on the question patterns and cognitive moves the Digital SAT actually tests, not textbook theory.</div>
+      </div>
+    </div>
+    <div class="teach-step">
+      <div class="teach-num">03</div>
+      <div>
+        <div class="teach-title">Adaptive Practice</div>
+        <div class="teach-body">Progressive sets of adaptive practice questions mirroring the real test's difficulty escalation — timed drills to sharpen accuracy and pacing under pressure, replicating the Bluebook experience.</div>
+      </div>
+    </div>
+    <div class="teach-step">
+      <div class="teach-num">04</div>
+      <div>
+        <div class="teach-title">Mock Tests &amp; Review</div>
+        <div class="teach-body">Full-length Bluebook-format mocks followed by in-depth debriefs. Each review session targets error patterns — not just explanations, but root-cause recognition so the same mistake never repeats.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOCK TESTS & PERFORMANCE TRACKING -->
+<section class="mocks-section">
+  <div class="reveal">
+    <span class="section-label">Performance Tracking</span>
+    <div class="section-heading">Mock Tests &amp;<br><em>What We Track</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="mocks-grid reveal">
+    <div class="mock-col">
+      <div class="mock-col-title">Mock Test Schedule</div>
+      <div class="mock-item">
+        <div class="mock-left">
+          <div class="mock-label">Mock 1</div>
+          <div class="mock-timing">End of Week 2–3</div>
+        </div>
+        <div class="mock-desc">Baseline after concept foundation — establishes your starting benchmark.</div>
+      </div>
+      <div class="mock-item">
+        <div class="mock-left">
+          <div class="mock-label">Mock 2</div>
+          <div class="mock-timing">Mid-program</div>
+        </div>
+        <div class="mock-desc">Measure growth and re-prioritise focus areas based on what's moved and what hasn't.</div>
+      </div>
+      <div class="mock-item">
+        <div class="mock-left">
+          <div class="mock-label">Mock 3</div>
+          <div class="mock-timing">Final 2 weeks</div>
+        </div>
+        <div class="mock-desc">Near-final assessment — section-level targets and pacing refinement.</div>
+      </div>
+      <div class="mock-item">
+        <div class="mock-left">
+          <div class="mock-label">Mock 4</div>
+          <div class="mock-timing">1 week before exam</div>
+        </div>
+        <div class="mock-desc">Final confidence test. Batch only — validates readiness and locks in test-day strategy.</div>
+      </div>
+    </div>
+    <div class="mock-col">
+      <div class="mock-col-title">What We Track After Every Test</div>
+      <div class="track-item">
+        <div class="track-title">Section-wise score breakdown</div>
+        <div class="track-q">RW vs Math — which section pulled you down?</div>
+      </div>
+      <div class="track-item">
+        <div class="track-title">Sub-domain accuracy map</div>
+        <div class="track-q">Which of the 8 content areas needs more work?</div>
+      </div>
+      <div class="track-item">
+        <div class="track-title">Time spent per question</div>
+        <div class="track-q">Are you over-investing in hard questions?</div>
+      </div>
+      <div class="track-item">
+        <div class="track-title">Error pattern analysis</div>
+        <div class="track-q">Careless vs conceptual vs trap-choice errors — each needs a different fix.</div>
+      </div>
+      <div class="track-item">
+        <div class="track-title">Score trend vs previous mock</div>
+        <div class="track-q">Are you improving in the right areas and at the right pace?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
 <section class="modules-section">
   <div class="reveal">
-    <span class="section-label">The Digital SAT</span>
-    <div class="section-heading">Two sections.<br><em>One score.</em></div>
+    <span class="section-label">Curriculum</span>
+    <div class="section-heading">Two sections.<br><em>Eight domains.</em></div>
     <div class="divider"></div>
-    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(244,241,236,0.6);line-height:1.9;max-width:620px;">The Digital SAT replaced the paper SAT in 2024. It is shorter, adaptive, and computer-based — and requires a very different preparation strategy. Our curriculum is built specifically for this new format.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:rgba(244,241,236,0.6);line-height:1.9;max-width:620px;">The Digital SAT replaced the paper SAT in 2024. Shorter, adaptive, and Bluebook-based — it requires a very different preparation strategy. Our curriculum is built specifically for this format.</p>
   </div>
   <div class="modules-grid reveal">
     <div class="module-card">
       <div class="module-num">01</div>
-      <div class="module-title">Reading and Writing</div>
-      <div class="module-meta">54 Questions · 64 Minutes · 2 Modules</div>
-      <div class="module-desc">Evidence-based reading, grammar and usage, and vocabulary-in-context. The Digital SAT's adaptive engine means your second module adjusts to your first — we train you to perform consistently across all difficulty levels.</div>
-      <ul class="module-topics">
-        <li>Craft and Structure — vocabulary, text structure, cross-text connections</li>
-        <li>Information and Ideas — central ideas, inferences, command of evidence</li>
-        <li>Standard English Conventions — boundaries, form, sense, agreement</li>
-        <li>Expression of Ideas — transitions, rhetorical synthesis</li>
+      <div class="module-title">Reading &amp; Writing</div>
+      <div class="module-meta">54 Questions · Approx. 64 Minutes · Two Adaptive Modules</div>
+      <div class="module-desc">Evidence-based reading, grammar and usage, and vocabulary-in-context. The adaptive engine means your second module adjusts to your first — we train you to perform consistently across all difficulty levels.</div>
+      <ul class="domain-list">
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Craft &amp; Structure</span>
+            <span class="domain-pct">~28%</span>
+          </div>
+          <div class="domain-topics">Words in context · Text structure &amp; purpose · Cross-text connections</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Information &amp; Ideas</span>
+            <span class="domain-pct">~26%</span>
+          </div>
+          <div class="domain-topics">Central ideas &amp; details · Command of evidence (textual &amp; quantitative) · Inferences</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Standard English Conventions</span>
+            <span class="domain-pct">~26%</span>
+          </div>
+          <div class="domain-topics">Sentence boundaries &amp; punctuation · Subject-verb &amp; pronoun agreement · Verb tense &amp; modifier placement</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Expression of Ideas</span>
+            <span class="domain-pct">~20%</span>
+          </div>
+          <div class="domain-topics">Transitions &amp; logical flow · Rhetorical synthesis · Effective &amp; precise language</div>
+        </li>
       </ul>
     </div>
     <div class="module-card">
       <div class="module-num">02</div>
-      <div class="module-title">Math</div>
-      <div class="module-meta">44 Questions · 70 Minutes · 2 Modules</div>
-      <div class="module-desc">Algebra, Advanced Math, Problem Solving, Geometry, and Trigonometry. The Digital SAT allows a calculator throughout — but speed and accuracy still matter. We build systematic problem-solving habits, not just formula recall.</div>
-      <ul class="module-topics">
-        <li>Algebra — linear equations, inequalities, systems of equations</li>
-        <li>Advanced Math — quadratics, polynomials, exponential functions</li>
-        <li>Problem Solving &amp; Data Analysis — ratios, rates, statistics, probability</li>
-        <li>Geometry &amp; Trigonometry — area, volume, circles, right triangles</li>
+      <div class="module-title">Mathematics</div>
+      <div class="module-meta">44 Questions · Approx. 70 Minutes · Calculator Permitted Throughout</div>
+      <div class="module-desc">Algebra, Advanced Math, Problem Solving, Geometry, and Trigonometry. The Digital SAT allows a calculator throughout — but speed and accuracy still matter. We build systematic problem-solving habits, not formula recall.</div>
+      <ul class="domain-list">
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Algebra</span>
+            <span class="domain-pct">~35%</span>
+          </div>
+          <div class="domain-topics">Linear equations &amp; inequalities · Systems of equations · Linear functions &amp; graphs</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Advanced Math</span>
+            <span class="domain-pct">~35%</span>
+          </div>
+          <div class="domain-topics">Quadratic &amp; polynomial equations · Exponential functions · Equivalent expressions &amp; operations</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Problem-Solving &amp; Data Analysis</span>
+            <span class="domain-pct">~15%</span>
+          </div>
+          <div class="domain-topics">Ratios, rates &amp; proportions · Statistics &amp; probability · Data tables &amp; graphs</div>
+        </li>
+        <li class="domain-item">
+          <div class="domain-row">
+            <span class="domain-name">Geometry &amp; Trigonometry</span>
+            <span class="domain-pct">~15%</span>
+          </div>
+          <div class="domain-topics">Area, volume &amp; surface area · Lines, angles &amp; triangles · Sine, cosine &amp; basic trig ratios</div>
+        </li>
       </ul>
     </div>
   </div>
   <div class="reveal" style="margin-top:3rem;padding:2rem;border:1px solid rgba(198,167,94,0.15);">
-    <p style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:var(--grey);line-height:1.8;letter-spacing:0.05em;text-transform:uppercase;">Score range: 400 – 1600 &nbsp;·&nbsp; Reading & Writing: 200–800 &nbsp;·&nbsp; Math: 200–800 &nbsp;·&nbsp; Duration: 2 hrs 14 min &nbsp;·&nbsp; Format: Adaptive (Bluebook app)</p>
+    <p style="font-family:'DM Sans',sans-serif;font-size:0.8rem;color:var(--grey);line-height:1.8;letter-spacing:0.05em;text-transform:uppercase;">Score range: 400 – 1600 &nbsp;·&nbsp; Reading &amp; Writing: 200–800 &nbsp;·&nbsp; Math: 200–800 &nbsp;·&nbsp; Duration: 2 hrs 14 min &nbsp;·&nbsp; Format: Adaptive (Bluebook app)</p>
+  </div>
+</section>
+
+<!-- SAT PREP JOURNEY -->
+<section class="journey-section">
+  <div class="reveal">
+    <span class="section-label">The Roadmap</span>
+    <div class="section-heading">Your SAT<br><em>Prep Journey</em></div>
+    <div class="divider"></div>
+  </div>
+  <div class="journey-phases reveal">
+    <div class="phase-box">
+      <div class="phase-label">Phase 1</div>
+      <div class="phase-title">Diagnostic &amp; Foundation</div>
+      <div class="phase-weeks">Weeks 1–3</div>
+      <div class="phase-mock">Diagnostic Mock</div>
+    </div>
+    <div class="phase-box">
+      <div class="phase-label">Phase 2</div>
+      <div class="phase-title">Concept Mastery</div>
+      <div class="phase-weeks">Weeks 4–8</div>
+      <div class="phase-mock">Mock 1</div>
+    </div>
+    <div class="phase-box">
+      <div class="phase-label">Phase 3</div>
+      <div class="phase-title">Adaptive Practice</div>
+      <div class="phase-weeks">Weeks 9–12</div>
+      <div class="phase-mock">Mock 2</div>
+    </div>
+    <div class="phase-box">
+      <div class="phase-label">Phase 4</div>
+      <div class="phase-title">Mocks &amp; Final Prep</div>
+      <div class="phase-weeks">Weeks 13–16</div>
+      <div class="phase-mock">Mock 3 &amp; 4 → Exam Day</div>
+    </div>
+  </div>
+  <div class="journey-note reveal">
+    <p>One-on-One students follow a compressed <strong style="color:var(--ivory);">6–8 week</strong> version of this journey — same milestones, same rigour, calibrated entirely to your pace and starting score.</p>
   </div>
 </section>
 
@@ -310,7 +633,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
         <tr><th>Program</th><th>Availability</th><th>Session Length</th><th>Commitment</th><th>Status</th></tr>
       </thead>
       <tbody>
-        <tr><td>1:1 Private Intensive</td><td>Flexible — your schedule</td><td>90 min / session</td><td>20 sessions over 8–10 weeks</td><td><span class="badge-open">Open</span></td></tr>
+        <tr><td>1:1 Private Intensive</td><td>Flexible — your schedule</td><td>2 hrs / session</td><td>15 sessions over 6–8 weeks</td><td><span class="badge-open">Open</span></td></tr>
       </tbody>
     </table>
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);margin-top:1.5rem;font-size:1rem;">Private sessions are available on weekdays and weekends. We will build a schedule around your school timetable or work commitments.</p>
