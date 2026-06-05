@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Admissions Experts | Figment Study Abroad Madurai</title>
+<meta name="description" content="Meet Figment's team of admissions counsellors — alumni of IIM Ahmedabad, IIM Mumbai, and leading research institutions. Expert SAT, GRE, GMAT coaching and university admissions guidance in Madurai.">
+<link rel="icon" type="image/png" href="/Favicon_Figment.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--black:#000000;--navy:#0B2C4A;--ivory:#F4F1EC;--grey:#8A8F96;--charcoal:#1C1C1C;--gold:#C6A75E;--gold-light:#d9bc80;--muted-ivory:rgba(244,241,236,0.55);}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;background:linear-gradient(to bottom,rgba(0,0,0,0.85) 0%,transparent 100%);backdrop-filter:blur(2px);}
+.nav-logo{text-decoration:none;}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{padding:0.55rem 1.6rem;border:1px solid var(--gold);color:var(--gold) !important;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s,color 0.3s;}
+.nav-cta:hover{background:var(--gold);color:var(--black) !important;}
+
+/* HERO */
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:flex-end;padding:10rem 3rem 5rem;background:radial-gradient(ellipse at 30% 60%,#0B2C4A 0%,#000 65%);overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.3;pointer-events:none;}
+.hero-tag{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;font-family:'DM Sans',sans-serif;opacity:0;animation:fadeUp 0.8s 0.2s both;}
+.hero-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4rem,10vw,8rem);line-height:0.92;color:var(--ivory);letter-spacing:-0.02em;display:block;opacity:0;animation:fadeUp 1s 0.4s both;}
+.hero-word em{font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.05em;}
+.hero-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.2vw,1.4rem);color:var(--muted-ivory);max-width:600px;line-height:1.8;margin-top:2rem;opacity:0;animation:fadeUp 1s 0.7s both;}
+
+section{position:relative;padding:6rem 3rem;}
+.section-label{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;font-family:'DM Sans',sans-serif;}
+.section-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);color:var(--ivory);line-height:1.05;}
+.section-heading em{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1em;}
+.divider{width:40px;height:1px;background:var(--gold);opacity:0.5;margin:2rem 0;}
+
+/* INSTITUTIONS STRIP */
+.institutions-strip{background:var(--charcoal);padding:2.5rem 3rem;}
+.inst-inner{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;}
+.inst-item{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem 2.5rem;border-right:1px solid rgba(244,241,236,0.06);text-align:center;flex:1;min-width:160px;}
+.inst-item:last-child{border-right:none;}
+.inst-name{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--ivory);font-weight:700;line-height:1.3;margin-bottom:0.3rem;}
+.inst-type{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;}
+
+/* TEAM SECTION */
+.team-section{background:var(--black);padding-top:5rem;}
+
+/* FEATURED EXPERT (Praveen) */
+.expert-featured{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:start;padding:4rem;background:var(--charcoal);border-left:3px solid var(--gold);margin-bottom:1px;}
+.expert-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.expert-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);}
+.expert-photo-sm{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(198,167,94,0.5);}
+.expert-placeholder{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#0B2C4A,#061828);border:2px solid rgba(198,167,94,0.35);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);letter-spacing:0.05em;}
+.expert-badge{display:inline-block;padding:0.25rem 0.9rem;background:rgba(198,167,94,0.12);font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif;margin-top:0.5rem;text-align:center;}
+.expert-name{font-family:'Playfair Display',serif;font-size:2rem;color:var(--ivory);font-weight:700;margin-bottom:0.3rem;}
+.expert-role{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--gold);margin-bottom:0.8rem;}
+.expert-creds{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);font-family:'DM Sans',sans-serif;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(244,241,236,0.08);}
+.expert-bio{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--muted-ivory);line-height:1.9;font-weight:300;margin-bottom:1.5rem;}
+.expert-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.tag{display:inline-block;padding:0.25rem 0.8rem;border:1px solid rgba(198,167,94,0.2);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);font-family:'DM Sans',sans-serif;}
+
+/* GRID EXPERTS */
+.experts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(244,241,236,0.05);}
+.expert-card{background:var(--charcoal);padding:3rem 2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;}
+.expert-card-name{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ivory);font-weight:700;margin-bottom:0.3rem;}
+.expert-card-role{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--gold);margin-bottom:0.6rem;}
+.expert-card-creds{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);font-family:'DM Sans',sans-serif;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(244,241,236,0.07);}
+.expert-card-bio{font-family:'DM Sans',sans-serif;font-size:0.84rem;color:var(--muted-ivory);line-height:1.85;font-weight:300;margin-bottom:1.2rem;}
+
+/* WHY OUR TEAM */
+.why-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(244,241,236,0.08);margin-top:3rem;}
+.why-card{background:transparent;padding:3rem 2.5rem;}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);opacity:0.35;line-height:1;margin-bottom:1rem;}
+.why-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ivory);font-weight:700;margin-bottom:0.8rem;}
+.why-body{font-size:0.84rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.8;}
+
+/* CTA */
+.cta-banner{background:var(--gold);padding:5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.cta-word{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--black);line-height:0.95;}
+.cta-word em{font-style:italic;font-family:'Cormorant Garamond',serif;}
+.cta-right{display:flex;flex-direction:column;gap:1rem;}
+.cta-text{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:rgba(0,0,0,0.6);max-width:340px;line-height:1.6;}
+.btn-dark{display:inline-block;padding:1rem 2.5rem;background:var(--black);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;transition:background 0.3s;}
+.btn-dark:hover{background:var(--charcoal);}
+
+footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ivory);margin-bottom:1rem;display:block;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--grey);line-height:1.7;}
+.footer-col h4{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-family:'DM Sans',sans-serif;}
+.footer-col a{display:block;font-size:0.85rem;color:var(--grey);text-decoration:none;margin-bottom:0.7rem;font-family:'DM Sans',sans-serif;transition:color 0.3s;}
+.footer-col a:hover{color:var(--ivory);}
+.footer-bottom{background:var(--charcoal);padding:1.5rem 3rem;border-top:1px solid rgba(244,241,236,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.65rem;color:rgba(138,143,150,0.5);letter-spacing:0.1em;font-family:'DM Sans',sans-serif;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  section{padding:4rem 1.5rem;}
+  .hero{padding:8rem 1.5rem 4rem;}
+  .expert-featured{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem;}
+  .expert-photo-wrap{align-items:flex-start;}
+  .experts-grid{grid-template-columns:1fr;}
+  .expert-card{grid-template-columns:1fr;gap:1.5rem;}
+  .why-grid{grid-template-columns:1fr;}
+  .inst-item{border-right:none;border-bottom:1px solid rgba(244,241,236,0.06);min-width:100%;}
+  footer{grid-template-columns:1fr;}
+  .cta-banner{flex-direction:column;}
+}
+@media(max-width:600px){
+  .nav-links a:not(.nav-cta){display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>figment</span></a>
+  <div class="nav-links">
+    <a href="ielts.html">IELTS</a>
+    <a href="gre.html">GRE</a>
+    <a href="gmat.html">GMAT</a>
+    <a href="sat.html">SAT</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="team.html" class="active">Our Team</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">The People Behind Every Offer Letter — Figment Study Abroad</span>
+  <div class="hero-word">
+    Meet your<br><em>counsellors.</em>
+  </div>
+  <p class="hero-desc">Every student who walks through Figment's doors is guided by counsellors who have lived the journey themselves — IIM alumni, PhDs, industry veterans, and specialist educators who understand exactly what top universities are looking for. This is not a team of generalists. This is your competitive edge.</p>
+</section>
+
+<!-- INSTITUTIONS STRIP -->
+<div class="institutions-strip">
+  <div class="inst-inner">
+    <div class="inst-item">
+      <div class="inst-name">IIM Ahmedabad</div>
+      <div class="inst-type">Premier B-School</div>
+    </div>
+    <div class="inst-item">
+      <div class="inst-name">IIM Mumbai</div>
+      <div class="inst-type">Premier B-School</div>
+    </div>
+    <div class="inst-item">
+      <div class="inst-name">Anna University</div>
+      <div class="inst-type">Engineering</div>
+    </div>
+    <div class="inst-item">
+      <div class="inst-name">PSG Tech</div>
+      <div class="inst-type">M.Tech</div>
+    </div>
+    <div class="inst-item">
+      <div class="inst-name">Madurai Kamaraj University</div>
+      <div class="inst-type">PhD — Physics</div>
+    </div>
+    <div class="inst-item">
+      <div class="inst-name">Central University, Kerala</div>
+      <div class="inst-type">Post-Graduate</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="reveal" style="margin-bottom:4rem;">
+    <span class="section-label">Admissions Experts</span>
+    <div class="section-heading">Five experts.<br><em>One shared mission.</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);font-size:1.1rem;line-height:1.9;max-width:640px;">At Figment, we do not believe in volume. Every student is paired with the counsellor whose expertise is most aligned with their goals — ensuring the guidance you receive is always precise, personal, and effective.</p>
+  </div>
+
+  <!-- PRAVEEN KUMAR — FEATURED -->
+  <div class="expert-featured reveal">
+    <div class="expert-photo-wrap">
+      <img src="Admission Experts/Praveen Kumar.jpeg" alt="Praveen Kumar — IIM Ahmedabad alumnus, Founder Figment" class="expert-photo">
+      <div class="expert-badge">Founder</div>
+    </div>
+    <div>
+      <div class="expert-name">Praveen Kumar</div>
+      <div class="expert-role">Lead Admissions Counsellor &amp; Founder</div>
+      <div class="expert-creds">IIM Ahmedabad &nbsp;·&nbsp; Anna University &nbsp;·&nbsp; US &amp; UK Admissions</div>
+      <p class="expert-bio">An alumnus of IIM Ahmedabad — one of Asia's most competitive and respected business schools — Praveen brings rare strategic clarity and intellectual depth to every student's university journey. Armed with an engineering foundation from Anna University, he combines analytical rigour with a masterful command of narrative to build student profiles that admissions committees at Ivy League universities and elite institutions worldwide genuinely remember.</p>
+      <p class="expert-bio">What sets Praveen apart is his extraordinary ability to find the thread — the single, authentic story that makes a student's application unmistakably theirs. His Statements of Purpose are renowned among Figment alumni for transforming a collection of experiences into a cohesive, compelling case for admission. Students who have worked with him describe the process as transformative: they don't just end up with a better application, they end up with a clearer sense of where they are headed and why.</p>
+      <p class="expert-bio" style="font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem;">His track record speaks for itself — a stellar record of placing students in Ivy League universities, top UK programmes, and leading institutions across the US.</p>
+      <div class="expert-tags">
+        <span class="tag">Ivy League Applications</span>
+        <span class="tag">SOP &amp; Personal Statement</span>
+        <span class="tag">US University Admissions</span>
+        <span class="tag">Profile Strategy</span>
+        <span class="tag">Scholarship Applications</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID: 4 EXPERTS -->
+  <div class="experts-grid">
+
+    <!-- VINODH KUMAR -->
+    <div class="expert-card reveal">
+      <div class="expert-photo-wrap">
+        <img src="Admission Experts/Vinodh Kumar.jpeg" alt="Vinodh Kumar — IIM Mumbai alumnus, Senior Counsellor" class="expert-photo-sm">
+      </div>
+      <div>
+        <div class="expert-card-name">Vinodh Kumar</div>
+        <div class="expert-card-role">Senior Counsellor — MBA &amp; Professional Applications</div>
+        <div class="expert-card-creds">IIM Mumbai &nbsp;·&nbsp; PSG Tech (M.Tech) &nbsp;·&nbsp; Anna University</div>
+        <p class="expert-card-bio">Vinodh holds degrees from Anna University, PSG Tech (M.Tech), and IIM Mumbai — a combination of engineering depth and management acumen that is genuinely rare in a counsellor. Add years of real-world industry experience to that, and you have someone who intuitively understands what top business schools and engineering graduate programmes look for in experienced candidates.</p>
+        <p class="expert-card-bio">He specialises in helping working professionals and postgraduate applicants translate their career histories into compelling, differentiated applications — making sure every year of work experience is positioned not as background, but as evidence of readiness for the next level. For students targeting MBA programmes or specialist graduate schools in the UK and Europe, Vinodh is the counsellor who turns professional experience into a genuine advantage.</p>
+        <div class="expert-tags">
+          <span class="tag">MBA Admissions</span>
+          <span class="tag">Work Experience Applications</span>
+          <span class="tag">Engineering Grad Programmes</span>
+          <span class="tag">UK &amp; Europe</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRINDHA DEVI RAJKUMAR -->
+    <div class="expert-card reveal">
+      <div class="expert-photo-wrap">
+        <img src="Admission Experts/Brindha.png" alt="Brindha Devi Rajkumar — Technology &amp; CS Applications Counsellor" class="expert-photo-sm">
+      </div>
+      <div>
+        <div class="expert-card-name">Brindha Devi Rajkumar</div>
+        <div class="expert-card-role">Counsellor — Technology, CS &amp; AI Applications</div>
+        <div class="expert-card-creds">Anna University &nbsp;·&nbsp; Former Software Engineer</div>
+        <p class="expert-card-bio">Brindha is a graduate of Anna University and a former software engineer who spent years inside the technology industry before transitioning to student counselling. That real-world context is her defining strength — she understands the roadmap from a CS or AI degree to a meaningful career in technology, which means she helps students choose programmes that genuinely serve their long-term goals rather than simply chasing rankings.</p>
+        <p class="expert-card-bio">She has guided dozens of students into top Computer Science, Artificial Intelligence, and Data Science programmes at leading universities across the US and Europe, with a sharp instinct for programme-profile fit and a deep appreciation of what admissions committees in technical disciplines actually value. For students navigating the world of tech graduate admissions, Brindha is a rare counsellor who has been on both sides of the industry.</p>
+        <div class="expert-tags">
+          <span class="tag">CS &amp; AI Applications</span>
+          <span class="tag">US &amp; Europe Universities</span>
+          <span class="tag">Tech Industry Context</span>
+          <span class="tag">Programme Selection</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DR MUNIRAJ VIGNESH N -->
+    <div class="expert-card reveal">
+      <div class="expert-photo-wrap">
+        <img src="Admission Experts/Muniraj.png" alt="Dr Muniraj Vignesh N — PhD Physics, STEM Admissions Counsellor" class="expert-photo-sm">
+      </div>
+      <div>
+        <div class="expert-card-name">Dr Muniraj Vignesh N</div>
+        <div class="expert-card-role">Academic Counsellor — STEM, Research &amp; UG/PG Admissions</div>
+        <div class="expert-card-creds">PhD Scholar in Physics &nbsp;·&nbsp; Madurai Kamaraj University &nbsp;·&nbsp; NEET &amp; JEE</div>
+        <p class="expert-card-bio">Dr Muniraj is a PhD scholar in Physics from Madurai Kamaraj University — a practising academic who brings genuine research depth to the counselling process. He is the counsellor for students who want to go further in academia, not just complete a degree. His expertise spans the full spectrum: school-leavers preparing for NEET and JEE, undergraduates applying to international programmes, and postgraduate students seeking doctoral positions at Tier 1 research institutions across the globe.</p>
+        <p class="expert-card-bio">His ability to map a student's scientific interests to the right research group, thesis topic, or funding opportunity — and to articulate that match precisely in a research statement — makes him an irreplaceable guide for any student serious about a career in STEM. He does not just help students apply; he helps them understand where they are going and why it is the right destination.</p>
+        <div class="expert-tags">
+          <span class="tag">Research Admissions</span>
+          <span class="tag">STEM UG &amp; PG</span>
+          <span class="tag">PhD &amp; Research Fellowships</span>
+          <span class="tag">NEET &amp; JEE</span>
+          <span class="tag">Global STEM Institutions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KARTHICK N -->
+    <div class="expert-card reveal">
+      <div class="expert-photo-wrap">
+        <div class="expert-placeholder">KN</div>
+      </div>
+      <div>
+        <div class="expert-card-name">Karthick N</div>
+        <div class="expert-card-role">Senior Faculty &amp; Admissions Expert — SAT, GRE, GMAT</div>
+        <div class="expert-card-creds">M.Sc. Mathematics &nbsp;·&nbsp; Central University of Kerala</div>
+        <p class="expert-card-bio">Karthick is a postgraduate in Mathematics from Central University of Kerala, and one of the most distinctive professionals at Figment — because he is equally formidable as a test prep coach and as an admissions strategist. Having guided hundreds of students through SAT, GRE, and GMAT preparation, he understands not just how to raise a score, but how that score sits within the broader context of a university application and what it signals to an admissions committee.</p>
+        <p class="expert-card-bio">This dual mastery — rare in any individual — gives Figment students a seamless, holistic experience: from the first practice test to the final submission, Karthick ensures that a student's academic performance and their application strategy are always working in the same direction. He has a sharp eye for the points in a student's profile that matter most, and an equally sharp instinct for how to surface them in a way that converts applications into offers.</p>
+        <div class="expert-tags">
+          <span class="tag">SAT Coaching</span>
+          <span class="tag">GRE &amp; GMAT</span>
+          <span class="tag">Score-to-Offer Strategy</span>
+          <span class="tag">Application Review</span>
+          <span class="tag">Profile Building</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY OUR TEAM -->
+<section class="why-section">
+  <div class="reveal">
+    <span class="section-label">What Makes Us Different</span>
+    <div class="section-heading">Not advisors.<br><em>Practitioners.</em></div>
+    <div class="divider"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--grey);font-size:1.1rem;line-height:1.9;max-width:620px;">Our team is not built from a directory of consultants. Every counsellor at Figment was chosen because they have earned the credentials, accumulated the experience, and developed the expertise to genuinely transform a student's chances.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">They have been where you want to go</div>
+      <div class="why-body">Our counsellors are alumni of IIM Ahmedabad, IIM Mumbai, and leading research universities. They have navigated competitive admissions processes themselves — and they bring that first-hand knowledge to every student they guide.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Specialists, not generalists</div>
+      <div class="why-body">Each counsellor owns a specific domain: tech applications, MBA admissions, research pathways, test coaching. You are not assigned a counsellor based on availability — you are matched based on expertise and fit.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">The full picture, always</div>
+      <div class="why-body">At Figment, test coaching and admissions counselling are never siloed. Our team works together so that your score strategy, your SOP, and your university list are always in alignment — giving you a cohesive, powerful application.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="cta-word">Ready to<br><em>start your<br>journey?</em></div>
+  <div class="cta-right">
+    <p class="cta-text">Book a free consultation with our team. We will assess your profile, understand your goals, and tell you honestly which path gives you the best chance at the universities you want.</p>
+    <a href="contact.html" class="btn-dark">Book Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer-logo">figment</span>
+    <p class="footer-tagline">Study abroad consulting — from your first exam to your flight.</p>
+    <div style="margin-top:1.2rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:#C6A75E;font-family:'DM Sans',sans-serif;margin-bottom:0.4rem;">Contact</div>
+      <p style="font-size:0.82rem;color:#8A8F96;font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;">
+        <a href="mailto:info@figment.global" style="color:#8A8F96;text-decoration:none;">info@figment.global</a><br>
+        <a href="tel:07448755866" style="color:#8A8F96;text-decoration:none;">07448755866</a><br>
+        23, First Floor, 80 Feet Rd,<br>New LIG Colony, Anna Nagar,<br>Madurai, Tamil Nadu 625020
+      </p>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Programs</h4>
+    <a href="ielts.html">IELTS Coaching</a>
+    <a href="gre.html">GRE Coaching</a>
+    <a href="gmat.html">GMAT Coaching</a>
+    <a href="sat.html">SAT Coaching</a>
+    <a href="admissions.html">Admissions Counselling</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="team.html">Our Team</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="contact.html">Book a Session</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Figment. All rights reserved.</p>
+  <p>figment.global</p>
+</div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(r=>io.observe(r));
+</script>
+</body>
+</html>
