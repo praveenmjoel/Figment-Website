@@ -113,7 +113,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 @media(max-width:900px){nav{padding:1.2rem 1.5rem;}section{padding:4rem 1.5rem;}.hero{padding:8rem 1.5rem 4rem;}.highlight-grid,.why-inner{grid-template-columns:1fr;gap:2.5rem;}.card-grid{grid-template-columns:1fr;}.stats-row{grid-template-columns:1fr 1fr;}footer{grid-template-columns:1fr;}.cta-banner{flex-direction:column;}}
-@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+
 
 /* EXPERT STRIP */
 .experts-strip-section{background:var(--navy);background:linear-gradient(135deg,#0B2C4A 0%,#061828 100%);}
@@ -123,6 +123,20 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
 .expert-mini-placeholder{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#0B2C4A,#061828);border:2px solid rgba(198,167,94,0.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);}
 .expert-mini-name{font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--ivory);font-weight:500;}
 .expert-mini-cred{font-size:0.65rem;color:var(--grey);font-family:'DM Sans',sans-serif;font-weight:300;}
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ivory);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'DM Sans',sans-serif;font-size:0.85rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.2s;}
+.mobile-menu a:hover,.mobile-menu a.m-active{color:var(--gold);}
+.mobile-menu .m-cta{margin-top:1rem;padding:0.7rem 2.2rem;border:1px solid var(--gold);color:var(--gold) !important;}
+.mobile-close{position:absolute;top:1.8rem;right:1.8rem;background:none;border:none;color:rgba(244,241,236,0.5);font-size:1.6rem;cursor:pointer;line-height:1;padding:0;}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none;}
+}
 </style>
 </head>
 <body>
@@ -137,7 +151,19 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
     <a href="team.html">Our Team</a>
     <a href="contact.html" class="nav-cta">Get Started</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&#10005;</button>
+  <a href="ielts.html">IELTS</a>
+  <a href="gre.html" class="m-active">GRE</a>
+  <a href="gmat.html">GMAT</a>
+  <a href="sat.html">SAT</a>
+  <a href="admissions.html">Admissions</a>
+  <a href="team.html">Our Team</a>
+  <a href="contact.html" class="m-cta">Contact</a>
+</div>
 
 <section class="hero">
   <h1 class="hero-tag">GRE Coaching in Madurai | figment</h1>

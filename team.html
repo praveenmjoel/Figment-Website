@@ -114,6 +114,20 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
 @media(max-width:600px){
   .nav-links a:not(.nav-cta){display:none;}
 }
+
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ivory);transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.97);z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'DM Sans',sans-serif;font-size:0.85rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(244,241,236,0.6);text-decoration:none;transition:color 0.2s;}
+.mobile-menu a:hover,.mobile-menu a.m-active{color:var(--gold);}
+.mobile-menu .m-cta{margin-top:1rem;padding:0.7rem 2.2rem;border:1px solid var(--gold);color:var(--gold) !important;}
+.mobile-close{position:absolute;top:1.8rem;right:1.8rem;background:none;border:none;color:rgba(244,241,236,0.5);font-size:1.6rem;cursor:pointer;line-height:1;padding:0;}
+@media(max-width:768px){
+  .hamburger{display:flex;}
+  .nav-links{display:none;}
+}
 </style>
 </head>
 <body>
@@ -129,7 +143,19 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
     <a href="team.html" class="active">Our Team</a>
     <a href="contact.html" class="nav-cta">Contact</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&#10005;</button>
+  <a href="ielts.html">IELTS</a>
+  <a href="gre.html">GRE</a>
+  <a href="gmat.html">GMAT</a>
+  <a href="sat.html">SAT</a>
+  <a href="admissions.html">Admissions</a>
+  <a href="team.html" class="m-active">Our Team</a>
+  <a href="contact.html" class="m-cta">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -182,7 +208,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
   <!-- PRAVEEN KUMAR — FEATURED -->
   <div class="expert-featured reveal">
     <div class="expert-photo-wrap">
-      <img src="Admission Experts/Praveen Kumar.jpeg" alt="Praveen Kumar — IIM Ahmedabad alumnus, Founder Figment" class="expert-photo">
+      <img src="experts/Praveen Kumar.jpeg" alt="Praveen Kumar — IIM Ahmedabad alumnus, Founder Figment" class="expert-photo">
       <div class="expert-badge">Founder</div>
     </div>
     <div>
@@ -208,7 +234,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
     <!-- VINODH KUMAR -->
     <div class="expert-card reveal">
       <div class="expert-photo-wrap">
-        <img src="Admission Experts/Vinodh Kumar.jpeg" alt="Vinodh Kumar — IIM Mumbai alumnus, Senior Counsellor" class="expert-photo-sm">
+        <img src="experts/Vinodh Kumar.jpeg" alt="Vinodh Kumar — IIM Mumbai alumnus, Senior Counsellor" class="expert-photo-sm">
       </div>
       <div>
         <div class="expert-card-name">Vinodh Kumar</div>
@@ -228,7 +254,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
     <!-- BRINDHA DEVI RAJKUMAR -->
     <div class="expert-card reveal">
       <div class="expert-photo-wrap">
-        <img src="Admission Experts/Brindha.png" alt="Brindha Devi Rajkumar — Technology &amp; CS Applications Counsellor" class="expert-photo-sm">
+        <img src="experts/Brindha.png" alt="Brindha Devi Rajkumar — Technology &amp; CS Applications Counsellor" class="expert-photo-sm">
       </div>
       <div>
         <div class="expert-card-name">Brindha Devi Rajkumar</div>
@@ -248,7 +274,7 @@ footer{background:var(--charcoal);padding:4rem 3rem 2.5rem;display:grid;grid-tem
     <!-- DR MUNIRAJ VIGNESH N -->
     <div class="expert-card reveal">
       <div class="expert-photo-wrap">
-        <img src="Admission Experts/Muniraj.png" alt="Dr Muniraj Vignesh N — PhD Physics, STEM Admissions Counsellor" class="expert-photo-sm">
+        <img src="experts/Muniraj.png" alt="Dr Muniraj Vignesh N — PhD Physics, STEM Admissions Counsellor" class="expert-photo-sm">
       </div>
       <div>
         <div class="expert-card-name">Dr Muniraj Vignesh N</div>
