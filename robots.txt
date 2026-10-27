@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /team.html
 
-Sitemap: https://figment.global/sitemap.xml
+Sitemap: https://gofigment.in/sitemap.xml
